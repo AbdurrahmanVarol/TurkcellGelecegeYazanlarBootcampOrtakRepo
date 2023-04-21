@@ -5,77 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingApp", "VotingApp", "{EB7E91C2-8428-4C25-B4BC-F919BB3AD853}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingApp.API", "VotingApp.API", "{788DBED8-8DB4-4B62-811C-D070CD25815C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingApp.UI", "VotingApp.UI", "{17AF1445-99F8-456C-951B-04B86A6BFE23}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.API", "VotingApp\VotingApp.API\VotingApp.API\VotingApp.API.csproj", "{40968C95-C9E2-4B2B-B68A-016DBCA77240}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pages", "Pages", "{C53728D3-A0C7-4453-82FE-2C9312FA0914}"
-	ProjectSection(SolutionItems) = preProject
-		VotingApp\VotingApp.UI\Pages\index.html = VotingApp\VotingApp.UI\Pages\index.html
-		VotingApp\VotingApp.UI\Pages\login.html = VotingApp\VotingApp.UI\Pages\login.html
-		VotingApp\VotingApp.UI\Pages\register.html = VotingApp\VotingApp.UI\Pages\register.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Layouts", "Layouts", "{A16CA8D0-A878-4FC4-A33F-C8E896A8CEB4}"
-	ProjectSection(SolutionItems) = preProject
-		VotingApp\VotingApp.UI\Layouts\authLayout.html = VotingApp\VotingApp.UI\Layouts\authLayout.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F2E75F26-407B-4639-8A5C-8A4D0C4F85A9}"
-	ProjectSection(SolutionItems) = preProject
-		VotingApp\VotingApp.UI\Scripts\login.js = VotingApp\VotingApp.UI\Scripts\login.js
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Styles", "Styles", "{75CD66BA-C4DD-4932-9BA4-A5D4570AF122}"
-	ProjectSection(SolutionItems) = preProject
-		VotingApp\VotingApp.UI\Styles\auth.css = VotingApp\VotingApp.UI\Styles\auth.css
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Business", "VotingApp\VotingApp.API\VotingApp.Business\VotingApp.Business.csproj", "{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.DataAccess", "VotingApp\VotingApp.API\VotingApp.DataAccess\VotingApp.DataAccess.csproj", "{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Entities", "VotingApp\VotingApp.API\VotingApp.Entities\VotingApp.Entities.csproj", "{3233B204-E412-41EE-9B66-F7E37F61A065}"
-EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{40968C95-C9E2-4B2B-B68A-016DBCA77240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40968C95-C9E2-4B2B-B68A-016DBCA77240}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40968C95-C9E2-4B2B-B68A-016DBCA77240}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40968C95-C9E2-4B2B-B68A-016DBCA77240}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3233B204-E412-41EE-9B66-F7E37F61A065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3233B204-E412-41EE-9B66-F7E37F61A065}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3233B204-E412-41EE-9B66-F7E37F61A065}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3233B204-E412-41EE-9B66-F7E37F61A065}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{788DBED8-8DB4-4B62-811C-D070CD25815C} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
-		{17AF1445-99F8-456C-951B-04B86A6BFE23} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
-		{40968C95-C9E2-4B2B-B68A-016DBCA77240} = {788DBED8-8DB4-4B62-811C-D070CD25815C}
-		{C53728D3-A0C7-4453-82FE-2C9312FA0914} = {17AF1445-99F8-456C-951B-04B86A6BFE23}
-		{A16CA8D0-A878-4FC4-A33F-C8E896A8CEB4} = {17AF1445-99F8-456C-951B-04B86A6BFE23}
-		{F2E75F26-407B-4639-8A5C-8A4D0C4F85A9} = {17AF1445-99F8-456C-951B-04B86A6BFE23}
-		{75CD66BA-C4DD-4932-9BA4-A5D4570AF122} = {17AF1445-99F8-456C-951B-04B86A6BFE23}
-		{A2821CB1-9030-4DF6-BBD7-F3238A08CCC3} = {788DBED8-8DB4-4B62-811C-D070CD25815C}
-		{14CEBB8E-04EC-4CA8-90FA-E16C49B5F236} = {788DBED8-8DB4-4B62-811C-D070CD25815C}
-		{3233B204-E412-41EE-9B66-F7E37F61A065} = {788DBED8-8DB4-4B62-811C-D070CD25815C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2769A718-2010-422A-9804-C36B300C2C7A}
