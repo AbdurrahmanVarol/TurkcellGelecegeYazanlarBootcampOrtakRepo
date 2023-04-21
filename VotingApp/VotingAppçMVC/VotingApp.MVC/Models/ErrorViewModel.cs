@@ -1,4 +1,4 @@
-namespace VotingAppçMVC.Models
+namespace VotingApp.MVC.Models
 {
     public class ErrorViewModel
     {
