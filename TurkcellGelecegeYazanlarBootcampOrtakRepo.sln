@@ -5,13 +5,13 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VotingApp", "VotingApp", "{EB7E91C2-8428-4C25-B4BC-F919BB3AD853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Entities", "VotingApp\VotingApp.Entities\VotingApp.Entities.csproj", "{ED34BB11-0620-48A9-89A5-271AE63DF6AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Entities", "VotingApp\VotingApp.Entities\VotingApp.Entities.csproj", "{ED34BB11-0620-48A9-89A5-271AE63DF6AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.DataAccess", "VotingApp\VotingApp.DataAccess\VotingApp.DataAccess.csproj", "{593ECD80-8DDC-4AB9-95F4-8B4D37412F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.DataAccess", "VotingApp\VotingApp.DataAccess\VotingApp.DataAccess.csproj", "{593ECD80-8DDC-4AB9-95F4-8B4D37412F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.Business", "VotingApp\VotingApp.Business\VotingApp.Business.csproj", "{B7721A01-63B7-4673-ACD1-6A0CB9596556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Business", "VotingApp\VotingApp.Business\VotingApp.Business.csproj", "{B7721A01-63B7-4673-ACD1-6A0CB9596556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApp.MVC", "VotingApp\VotingApp.MVC\VotingApp.MVC.csproj", "{B1C6A068-07FB-4C58-B16E-534D2A203C82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.MVC", "VotingApp\VotingApp.MVC\VotingApp.MVC.csproj", "{B1C6A068-07FB-4C58-B16E-534D2A203C82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
