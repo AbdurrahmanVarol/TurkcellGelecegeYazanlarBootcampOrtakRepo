@@ -32,7 +32,7 @@ namespace VotingApp.Business.Services
             return passwordHash.Equals(computedHash);
         }
 
-        Task IAuthService.RegisterAsync(RegisterRequest registerRequest)
+        public Task RegisterAsync(RegisterRequest registerRequest)
         {
             //TODO: Bu metot UserService oluşturulduktan sonra doldurulacak
             //TODO: Validasyon eklenecek
