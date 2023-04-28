@@ -15,4 +15,8 @@
     <Folder Include="wwwroot\icons\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VotingApp.Business\VotingApp.Business.csproj" />
+  </ItemGroup>
+
 </Project>
