@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using VotingApp.Entities;
 
-namespace VotingApp.DataAccess;
+namespace VotingApp.DataAccess.Interfaces;
 public interface IAsyncRepository<T> where T : Entity, new() {
     public Task<List<T>> GetAllAsync();
     public Task<List<T>> GetAllAsync(bool tracking);

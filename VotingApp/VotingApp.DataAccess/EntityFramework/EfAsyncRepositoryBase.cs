@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using VotingApp.DataAccess.Interfaces;
 using VotingApp.Entities;
 
 namespace VotingApp.DataAccess.EntityFramework;

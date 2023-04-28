@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using VotingApp.Entities;
 
-namespace VotingApp.DataAccess.EntityFramework;
-public sealed class Context : DbContext {
-    public Context(DbContextOptions options) : base(options) { }
+namespace VotingApp.DataAccess.EntityFramework.Contexts;
+public sealed class VotingDbContext : DbContext {
+    public VotingDbContext(DbContextOptions options) : base(options) { }
 
     public override Task<Int32> SaveChangesAsync(CancellationToken cancellationToken = default) {
         IEnumerable<EntityEntry<Entity>> datas = this.ChangeTracker.Entries<Entity>();
