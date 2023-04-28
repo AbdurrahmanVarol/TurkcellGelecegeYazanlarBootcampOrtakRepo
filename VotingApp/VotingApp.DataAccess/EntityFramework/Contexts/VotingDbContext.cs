@@ -4,6 +4,7 @@ using VotingApp.Entities;
 
 namespace VotingApp.DataAccess.EntityFramework.Contexts;
 public sealed class VotingDbContext : DbContext {
+    public const string DB_SCHEMA = "vote_db";
     public VotingDbContext(DbContextOptions options) : base(options) { }
 
     public override Task<Int32> SaveChangesAsync(CancellationToken cancellationToken = default) {
