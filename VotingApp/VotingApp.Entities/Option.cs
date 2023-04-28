@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace VotingApp.Entities
 {
-    public class Votes
+    public class Option : Entity
     {
-        public int id{ get; set; }
-        public int userId{ get; set; }
-        public int optionId { get; set; }
+        public string Value { get; set; }
+
+        public int PollId { get; set; }
+        public Poll Poll { get; set; }
     }
 }
