@@ -1,7 +1,12 @@
+using VotingApp.Business.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IVoteService, VoteService>();
 
 var app = builder.Build();
 
@@ -20,8 +25,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseRouting();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=auth}/{action=login}/{id?}");
 
 app.Run();
