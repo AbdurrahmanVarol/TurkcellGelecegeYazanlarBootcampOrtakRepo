@@ -7,6 +7,13 @@ public sealed class VotingDbContext : DbContext {
     public const string DB_SCHEMA = "vote_db";
     public VotingDbContext(DbContextOptions options) : base(options) { }
 
+    public DbSet<Option> Options { get; set; }
+    public DbSet<Poll> Polls { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Vote> Votes { get; set; }
+
+
+
     public override Task<Int32> SaveChangesAsync(CancellationToken cancellationToken = default) {
         IEnumerable<EntityEntry<Entity>> datas = this.ChangeTracker.Entries<Entity>();
 
