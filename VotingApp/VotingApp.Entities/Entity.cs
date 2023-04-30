@@ -9,6 +9,6 @@ namespace VotingApp.Entities
     public abstract class Entity
     {
         public Int32 Id { get; set; }
-        public DateTime AtCreated { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
