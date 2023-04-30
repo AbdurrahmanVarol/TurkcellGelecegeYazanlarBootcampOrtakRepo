@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using VotingApp.Business;
 using VotingApp.DataAccess;
+using VotingApp.DataAccess.EntityFramework.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,5 +33,10 @@ app.UseRouting();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=auth}/{action=login}/{id?}");
+
+using (var scope = app.Services.GetService<IServiceScopeFactory>().CreateScope())
+{
+    scope.ServiceProvider.GetRequiredService<VotingDbContext>().Database.Migrate();
+}
 
 app.Run();
