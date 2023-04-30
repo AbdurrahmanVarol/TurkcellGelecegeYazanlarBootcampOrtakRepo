@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VotingApp.Business\VotingApp.Business.csproj" />
+    <ProjectReference Include="..\VotingApp.DataAccess\VotingApp.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

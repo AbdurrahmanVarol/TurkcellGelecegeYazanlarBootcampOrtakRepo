@@ -12,5 +12,7 @@ namespace VotingApp.Entities
 
         public int PollId { get; set; }
         public Poll Poll { get; set; }
+
+        public ICollection<Vote> Votes { get; set; } = new List<Vote>();
     }
 }

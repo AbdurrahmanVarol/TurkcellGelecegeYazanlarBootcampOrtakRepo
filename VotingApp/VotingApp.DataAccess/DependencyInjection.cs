@@ -10,7 +10,7 @@ public static class DependencyInjection {
     public static IServiceCollection AddDataAccessLayer(this IServiceCollection services, IConfiguration configuration) {
 
         services.AddDbContext<VotingDbContext>(options => {
-            options.UseSqlServer(configuration.GetConnectionString("ConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("SqlServerConnectionString"));
         });
 
         services.AddScoped<IOptionRepository, EfOptionRepository>();

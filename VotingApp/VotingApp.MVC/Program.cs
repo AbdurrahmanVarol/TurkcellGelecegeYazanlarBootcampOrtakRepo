@@ -1,12 +1,13 @@
-using VotingApp.Business.Services;
+using VotingApp.Business;
+using VotingApp.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IVoteService, VoteService>();
+builder.Services.AddBusinessLayer(builder.Configuration);
+builder.Services.AddDataAccessLayer(builder.Configuration);
 
 var app = builder.Build();
 

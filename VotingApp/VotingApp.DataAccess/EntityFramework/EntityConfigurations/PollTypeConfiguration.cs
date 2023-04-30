@@ -4,8 +4,10 @@ using VotingApp.DataAccess.EntityFramework.Contexts;
 using VotingApp.Entities;
 
 namespace VotingApp.DataAccess.EntityFramework.EntityConfigurations;
-internal class PollTypeConfiguration : IEntityTypeConfiguration<Poll> {
-    public void Configure(EntityTypeBuilder<Poll> builder) {
+internal class PollTypeConfiguration : IEntityTypeConfiguration<Poll>
+{
+    public void Configure(EntityTypeBuilder<Poll> builder)
+    {
         builder.ToTable("polls", VotingDbContext.DB_SCHEMA);
 
         builder.SetId();
@@ -14,12 +16,9 @@ internal class PollTypeConfiguration : IEntityTypeConfiguration<Poll> {
 
         builder.SetColumn(x => x.Description, "nvarchar(250)");
 
-        builder.HasMany(x => x.Options)
-                .WithOne()
-                .HasForeignKey(x => x.PollId);
-
-        builder.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.Id);
+        builder.HasMany(p => p.Options)
+          .WithOne(p => p.Poll)
+          .HasForeignKey(p => p.PollId)
+          .OnDelete(DeleteBehavior.NoAction);
     }
 }
