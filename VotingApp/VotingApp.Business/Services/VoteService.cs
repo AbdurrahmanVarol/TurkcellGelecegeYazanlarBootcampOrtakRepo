@@ -21,6 +21,11 @@ namespace VotingApp.Business.Services
             throw new NotImplementedException();
         }
 
+        public Task<VoteResponse> GetVoteByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<VoteReportResponse> GetVoteReportByPollId(int id)
         {
             throw new NotImplementedException();
@@ -31,7 +36,7 @@ namespace VotingApp.Business.Services
             throw new NotImplementedException();
         }
 
-        public Task<VoteResponse> GetVoteByIdAsync(int id)
+        public Task<List<VoteResponse>> GetVotesByPollIdAsync(int pollId)
         {
             throw new NotImplementedException();
         }
