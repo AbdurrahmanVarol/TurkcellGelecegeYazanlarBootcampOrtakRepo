@@ -34,7 +34,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=auth}/{action=login}/{id?}");
 
-using (var scope = app.Services.GetService<IServiceScopeFactory>().CreateScope())
+using (var scope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope())
 {
     scope.ServiceProvider.GetRequiredService<VotingDbContext>().Database.Migrate();
 }

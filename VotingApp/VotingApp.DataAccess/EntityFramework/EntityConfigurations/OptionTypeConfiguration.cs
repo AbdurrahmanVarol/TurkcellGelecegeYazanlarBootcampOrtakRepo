@@ -18,5 +18,10 @@ internal class OptionTypeConfiguration : IEntityTypeConfiguration<Option>
            .WithOne(p => p.Option)
            .HasForeignKey(p => p.OptionId)
            .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData(
+                new Option { Id = 1, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek1" },
+                new Option { Id = 2, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek2" }
+            );
     }
 }
