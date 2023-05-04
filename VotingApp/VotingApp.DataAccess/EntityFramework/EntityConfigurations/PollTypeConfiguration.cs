@@ -20,5 +20,9 @@ internal class PollTypeConfiguration : IEntityTypeConfiguration<Poll>
           .WithOne(p => p.Poll)
           .HasForeignKey(p => p.PollId)
           .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData(
+            new Poll { Id = 1, CreatedAt = DateTime.Now, CreatedById = 1, Title = "Deneme", Description = "DenemeAciklama" }
+            );
     }
 }
