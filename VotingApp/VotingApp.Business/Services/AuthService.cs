@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Responses;
+using VotingApp.Entities;
 
 namespace VotingApp.Business.Services
 {
     public class AuthService : IAuthService
     {
+        private readonly IUserService _userService;
+
+        public AuthService(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public void CreatePasswordHash(string password, out string passwordHash, out string passwordSalt)
         {
             using var hmac = new System.Security.Cryptography.HMACSHA512();
@@ -17,10 +25,28 @@ namespace VotingApp.Business.Services
             passwordHash = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password)));
         }
 
-        public Task<UserResponse> LoginAsync(LoginRequest loginRequest)
+        public async Task<UserResponse> LoginAsync(LoginRequest loginRequest)
         {
-            //TODO: Bu metot UserService oluşturulduktan sonra doldurulacak
-            throw new NotImplementedException();
+            var user = await _userService.GetByUsername(loginRequest.UserName);
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(loginRequest));
+            }
+            if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
+            {
+                throw new ArgumentException();
+            }
+            //TODO:AutoMapper eklenecek
+            return new UserResponse
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.UserName,
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt
+            };
         }
 
         public bool VerifyPasswordHash(string password, string passwordHash, string passwordSalt)
@@ -40,7 +66,18 @@ namespace VotingApp.Business.Services
             string passwordSalt = string.Empty;
 
             CreatePasswordHash(registerRequest.Password, out passwordHash, out passwordSalt);
-            throw new NotImplementedException();
+            var user = new User
+            {
+                FirstName = registerRequest.FirstName,
+                LastName = registerRequest.LastName,
+                Email = registerRequest.Email,
+                UserName = registerRequest.UserName,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                CreatedAt = DateTime.Now,
+            };
+            _userService.Add(user);
+            return Task.CompletedTask;
         }
     }
 }
