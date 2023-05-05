@@ -8,6 +8,7 @@ public static class DependencyInjection {
     public static IServiceCollection AddBusinessLayer(this IServiceCollection services, IConfiguration configuration) {
         services.AddDataAccessLayer(configuration);
 
+        services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IPollService, PollService>();
         return services;
     }
