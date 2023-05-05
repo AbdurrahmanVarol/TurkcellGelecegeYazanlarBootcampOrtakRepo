@@ -15,12 +15,12 @@ namespace VotingApp.Business.Services
     {
         private readonly IUserRepository UserRepository;
 
-        public UserService(EfUserRepository efUserRepository)
-        {
-            this.UserRepository = UserRepository;
-        }
+		public UserService(IUserRepository userRepository)
+		{
+			UserRepository = userRepository;
+		}
 
-        public Task<List<User>> GetAllAsync()
+		public Task<List<User>> GetAllAsync()
         {
             return this.UserRepository.GetAllAsync();
         }
@@ -28,6 +28,10 @@ namespace VotingApp.Business.Services
         public Task<User> GetById(int id)
         {
             return this.UserRepository.GetByIdAsync(id);
+        }
+        public async Task<User> GetByUsername(string username)
+        {
+            return await this.UserRepository.GetAsync(p=>p.UserName.Equals(username));
         }
         public void Add(User user)
         {
