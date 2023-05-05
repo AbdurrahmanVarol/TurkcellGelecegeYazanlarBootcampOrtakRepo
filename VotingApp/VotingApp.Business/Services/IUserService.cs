@@ -14,10 +14,9 @@ namespace VotingApp.Business.Services
         public Task<List<User>> GetAllAsync();
         public Task<User> GetById(int id);
         public Task<User> GetByUsername(string username);
-
-		public void Add(User user);
-        public void Delete(int id);
-        public void Update(User user);
+		public Task Add(User user);
+        public Task Delete(int id);
+        public Task Update(User user);
 
 
     }
