@@ -3,6 +3,43 @@
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
-
-<h1>Register</h1>
-
+<h1 class="text-center text-light">Kayıt Ol</h1>
+<form action="#" method="post">
+	<div class="form-group">
+		<label class="text-light"  for="firstname">Ad:</label>
+		<input type="text" class="form-control" id="firstname" placeholder="Adınızı girin" name="firstname" required>
+	</div>
+	<br/>
+	<div class="form-group">
+		<label class="text-light" for="lastname">Soyad:</label>
+		<input type="text" class="form-control" id="lastname" placeholder="Soyadınızı girin" name="lastname" required>
+	</div>
+	<br />
+	<div class="form-group">
+		<label class="text-light" for="email">E-posta:</label>
+		<input type="email" class="form-control" id="email" placeholder="E-postanızı girin" name="email" required>
+	</div>
+	<br />
+	<div class="form-group">
+		<label class="text-light"  for="username">Kullanıcı Adı:</label>
+		<input type="text" class="form-control" id="username" placeholder="Kullanıcı adınızı girin" name="username" required>
+	</div>
+	<br />
+	<div class="form-group">
+		<label class="text-light"  for="password">Şifre:</label>
+		<input type="password" class="form-control" id="password" placeholder="Şifrenizi girin" name="password" required>
+	</div>
+	<br />
+	<div class="form-group">
+		<label class="text-light"  for="password-repeat">Şifre Tekrarı:</label>
+		<input type="password" class="form-control" id="password-repeat" placeholder="Şifrenizi tekrar girin" name="password-repeat" required>
+	</div>
+	<br/>
+	<div class="text-right">
+		<button style="float: right;" type="submit" class="btn btn-success">Kayıt Ol</button>
+	</div>
+</form>
+<br/><br/>
+<div class="links">
+	<strong class="text-light">Hesabınız var mı?</strong><a href="login"><strong>Giriş yap</strong></a>
+</div>
