@@ -20,8 +20,11 @@ internal class OptionTypeConfiguration : IEntityTypeConfiguration<Option>
            .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData(
-                new Option { Id = 1, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek1" },
-                new Option { Id = 2, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek2" }
+                new Option { Id = 1, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek 1" },
+                new Option { Id = 2, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek 2" },
+                new Option { Id = 3, PollId = 2, CreatedAt = DateTime.Now, Value = "Seçenek 1" },
+                new Option { Id = 4, PollId = 2, CreatedAt = DateTime.Now, Value = "Seçenek 2" },
+                new Option { Id = 5, PollId = 2, CreatedAt = DateTime.Now, Value = "Seçenek 3" }
             );
     }
 }

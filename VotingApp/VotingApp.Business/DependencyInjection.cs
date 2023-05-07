@@ -9,6 +9,8 @@ public static class DependencyInjection {
         services.AddDataAccessLayer(configuration);
 
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IVoteService,VoteService>();
         services.AddScoped<IPollService, PollService>();
         return services;
     }
