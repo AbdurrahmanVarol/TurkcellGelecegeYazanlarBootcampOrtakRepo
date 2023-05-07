@@ -1,8 +1,25 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
-
-<h1>Login</h1>
-
+<h1 class="text-center text-light">Kayıt Ol</h1>
+<form action="#" method="post">
+    <div class="form-group">
+        <label class="text-light" for="email">E-posta:</label>
+        <input type="email" class="form-control" id="email" placeholder="E-postanızı girin" name="email" required>
+    </div>
+    <br />
+    <div class="form-group">
+        <label class="text-light" for="password">Şifre:</label>
+        <input type="password" class="form-control" id="password" placeholder="Şifrenizi girin" name="password" required>
+    </div>
+    <br />
+    <div class="text-right">
+        <button style="float: right;" type="submit" class="btn btn-success">Giriş Yap</button>
+    </div>
+</form>
+<br />
+<br />
+<div class="links">
+    <strong class="text-light">Hesabınız yok mu?</strong><a href="register"><strong>Kayıt Ol</strong></a>
+</div>
