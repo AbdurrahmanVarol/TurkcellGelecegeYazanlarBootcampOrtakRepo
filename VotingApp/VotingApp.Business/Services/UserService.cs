@@ -49,5 +49,10 @@ namespace VotingApp.Business.Services
              this.UserRepository.Update (user);
             return Task.CompletedTask;
         }
+
+        public Task<List<User>> GetParticipantByPollId(int pollId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
