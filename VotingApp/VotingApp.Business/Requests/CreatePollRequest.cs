@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VotingApp.Business.Requests
-{
-    public class CreatePollRequest
-    {
+namespace VotingApp.Business.Requests {
+    public class CreatePollRequest {
     }
 }
