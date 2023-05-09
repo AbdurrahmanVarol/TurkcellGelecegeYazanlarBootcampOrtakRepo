@@ -15,8 +15,8 @@ namespace VotingApp.Business.Services
         Task<List<VoteResponse>> GetVotesAsync();
         Task<VoteResponse> GetVoteByIdAsync(int id);
         Task<VoteResponse> AddAsync(CreateVoteRequest createVoteRequest);
-        Task<VoteResponse> UpdateAsync(ModifyVoteRequest modifyVoteRequest);
-        Task<VoteResponse> DeleteAsync(int id);
+        Task<VoteResponse> UpdateAsync(UpdateVoteRequest updateVoteRequest);
+        Task DeleteAsync(int id);
         Task<List<VoteDetail>> GetVoteDetailByPolls(int pollId);
         Task<VoteReportResponse> GetVoteReportByPollId(int id);
     }

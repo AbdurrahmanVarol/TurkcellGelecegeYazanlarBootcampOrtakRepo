@@ -50,9 +50,9 @@ namespace VotingApp.Business.Services
             return Task.CompletedTask;
         }
 
-        public Task<List<User>> GetParticipantByPollId(int pollId)
+        public async Task<List<User>> GetParticipantByPollId(int pollId)
         {
-            throw new NotImplementedException();
+            return await UserRepository.GetParticipantByPollId(pollId);
         }
     }
 }
