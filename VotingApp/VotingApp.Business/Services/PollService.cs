@@ -11,6 +11,11 @@ public sealed class PollService : IPollService
         _pollRepository = pollRepository;
     }
 
+    public async Task<Poll> GetByIdAsync(int id)
+    {
+        return await _pollRepository.GetByIdAsync(id);
+    }
+
     public async Task<List<Poll>> GetJoinedPolls(int userId)
     {
         return await _pollRepository.GetJoinedPolls(userId);

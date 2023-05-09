@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,28 +15,36 @@ namespace VotingApp.Business.Services
     public class VoteService : IVoteService
     {
         private readonly IVoteRepository _voteRepository;
-        private readonly IUserRepository _userRepository;
-        private readonly IPollRepository _pollRepository;
+        private readonly IUserService _userService;
+        private readonly IPollService _pollService;
+        private readonly IMapper _mapper;
 
-        public VoteService(IVoteRepository voteRepository, IUserRepository userRepository, IPollRepository pollRepository)
+        public VoteService(IVoteRepository voteRepository, IUserService userService, IPollService pollService, IMapper mapper)
         {
             _voteRepository = voteRepository;
-            _userRepository = userRepository;
-            _pollRepository = pollRepository;
+            _userService = userService;
+            _pollService = pollService;
+            _mapper = mapper;
         }
 
-        public Task<VoteResponse> AddAsync(CreateVoteRequest createVoteRequest)
+
+        public async Task<VoteResponse> AddAsync(CreateVoteRequest createVoteRequest)
         {
-            throw new NotImplementedException();
+            var vote = _mapper.Map<Vote>(createVoteRequest);
+            await _voteRepository.AddAsync(vote);
+            return _mapper.Map<VoteResponse>(vote);
         }
 
-        public Task<VoteResponse> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _voteRepository.DeleteAsync(id);
         }
-        public Task<VoteResponse> GetVoteByIdAsync(int id)
+        public async Task<VoteResponse> GetVoteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var vote = await _voteRepository.GetByIdAsync(id);
+            //TODO: null check?
+            return _mapper.Map<VoteResponse>(vote);
+
         }
 
         public Task<List<VoteDetail>> GetVoteDetailByPolls(int pollId)
@@ -45,47 +54,41 @@ namespace VotingApp.Business.Services
 
         public async Task<VoteReportResponse> GetVoteReportByPollId(int id)
         {
-            //TODO: AutoMapper Eklenecek
-            var participants = await _userRepository.GetParticipantByPollId(id);
-            var poll = await _pollRepository.GetAsync(p => p.Id == id);
+            var participants = await _userService.GetParticipantByPollId(id);
+            var poll = await _pollService.GetByIdAsync(id);
             var voteDetails = await _voteRepository.GetVoteDetailByPolls(id);
+
             var report = new VoteReportResponse
             {
-                Participants = participants.Select(p => new UserResponse
-                {
-                    FirstName = p.FirstName,
-                    LastName = p.LastName,
-                    Email = p.Email,
-                    UserName = p.UserName
-                }).ToList(),
-                Poll = new PollResponse
-                {
-                    Description = poll.Description,
-                    Title = poll.Title
-                },
+                Participants = _mapper.Map<List<UserResponse>>(participants),
+                Poll = _mapper.Map<PollResponse>(poll),
                 VoteDetails = voteDetails
             };
             return report;
         }
 
-        public Task<List<VoteResponse>> GetVotesAsync()
+        public async Task<List<VoteResponse>> GetVotesAsync()
         {
-            throw new NotImplementedException();
+            var votes = await _voteRepository.GetAllAsync();
+            return _mapper.Map<List<VoteResponse>>(votes);
         }
 
-        public Task<List<VoteResponse>> GetVotesByPollIdAsync(int pollId)
+        public async Task<List<VoteResponse>> GetVotesByUserIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            var votes = await _voteRepository.GetAllAsync(p => p.UserId == userId, false);
+            return _mapper.Map<List<VoteResponse>>(votes);
         }
 
-        public Task<List<VoteResponse>> GetVotesByUserIdAsync(int userId)
+        public async Task<VoteResponse> UpdateAsync(UpdateVoteRequest updateVoteRequest)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<VoteResponse> UpdateAsync(ModifyVoteRequest modifyVoteRequest)
-        {
-            throw new NotImplementedException();
+            var hasVote = await _voteRepository.GetByIdAsync(updateVoteRequest.Id) == null;
+            if (hasVote)
+            {
+                throw new ArgumentException(nameof(updateVoteRequest));
+            }
+            var vote = _mapper.Map<Vote>(updateVoteRequest);
+            _voteRepository.Update(vote);
+            return _mapper.Map<VoteResponse>(vote);
         }
     }
 }
