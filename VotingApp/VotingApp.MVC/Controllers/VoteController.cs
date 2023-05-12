@@ -14,15 +14,15 @@ namespace VotingApp.MVC.Controllers
             _voteService = voteService;
         }
 
-        [HttpPost("createVote")]
+        [HttpPost]
         public async Task<JsonResult> CreateVote(CreateVoteRequest request)
         {
             var vote = await _voteService.AddAsync(request);
             return Json(vote);
         }
 
-        [HttpGet("getVoteReport/{id}")]
-        public async Task<JsonResult> GetVoteReportByPollId(int id)
+        [HttpGet("[controller]/getVoteReport/{id}")]
+        public async Task<JsonResult> GetVoteReport(int id)
         {
             var result = await _voteService.GetVoteReportByPollId(id);
             return Json(result);

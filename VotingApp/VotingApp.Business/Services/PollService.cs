@@ -13,16 +13,9 @@ public sealed class PollService : IPollService
         _pollRepository = pollRepository;
     }
 
-    public Task AddPoll(Poll poll) {
-        throw new NotImplementedException();
-    }
-
-    public Task AddPoll(CreatePollRequest createPollRequest) {
-        throw new NotImplementedException();
-    }
-
-    public Task Delete(Int32 id) {
-        return _pollRepository.DeleteAsync(id);
+    public Task<Poll> GetByIdAsync(int id)
+    {
+        return _pollRepository.GetByIdAsync(id);
     }
 
     public Task<List<Poll>> GetJoinedPolls(int userId)

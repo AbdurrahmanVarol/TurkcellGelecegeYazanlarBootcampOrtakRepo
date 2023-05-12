@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace VotingApp.Business.Services
     public class AuthService : IAuthService
     {
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
-        public AuthService(IUserService userService)
+        public AuthService(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         public void CreatePasswordHash(string password, out string passwordHash, out string passwordSalt)
@@ -30,23 +33,13 @@ namespace VotingApp.Business.Services
             var user = await _userService.GetByUsername(loginRequest.UserName);
             if (user == null)
             {
-                throw new ArgumentNullException(nameof(loginRequest));
+                throw new ArgumentException("Kullanıcı bulunamadı!!!");
             }
             if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Şifre hatalı!!!");
             }
-            //TODO:AutoMapper eklenecek
-            return new UserResponse
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                UserName = user.UserName,
-                PasswordHash = user.PasswordHash,
-                PasswordSalt = user.PasswordSalt
-            };
+            return _mapper.Map<UserResponse>(user);
         }
 
         public bool VerifyPasswordHash(string password, string passwordHash, string passwordSalt)
@@ -58,9 +51,8 @@ namespace VotingApp.Business.Services
             return passwordHash.Equals(computedHash);
         }
 
-        public Task RegisterAsync(RegisterRequest registerRequest)
+        public async Task RegisterAsync(RegisterRequest registerRequest)
         {
-            //TODO: Bu metot UserService oluşturulduktan sonra doldurulacak
             //TODO: Validasyon eklenecek
             string passwordHash = string.Empty;
             string passwordSalt = string.Empty;
@@ -76,8 +68,7 @@ namespace VotingApp.Business.Services
                 PasswordSalt = passwordSalt,
                 CreatedAt = DateTime.Now,
             };
-            _userService.Add(user);
-            return Task.CompletedTask;
+            await _userService.Add(user);
         }
     }
 }
