@@ -1,4 +1,6 @@
-﻿using VotingApp.Entities;
+﻿using VotingApp.Business.Requests;
+using VotingApp.Business.Responses;
+using VotingApp.Entities;
 
 namespace VotingApp.Business.Services;
 public interface IPollService
