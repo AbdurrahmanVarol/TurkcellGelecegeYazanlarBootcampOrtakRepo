@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VotingApp.DataAccess.EntityFramework;
 using VotingApp.DataAccess.EntityFramework.Contexts;
+using VotingApp.DataAccess.EntityFramework.Interceptors;
 using VotingApp.DataAccess.Interfaces;
 
 namespace VotingApp.DataAccess;
@@ -11,6 +12,7 @@ public static class DependencyInjection {
 
         services.AddDbContext<VotingDbContext>(options => {
             options.UseSqlServer(configuration.GetConnectionString("SqlServerConnectionString"));
+            options.AddInterceptors(new SoftDeleteInterceptor());
         });
 
         services.AddScoped<IOptionRepository, EfOptionRepository>();
