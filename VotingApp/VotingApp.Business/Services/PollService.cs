@@ -1,4 +1,5 @@
-﻿using VotingApp.Business.Requests;
+﻿using AutoMapper;
+using VotingApp.Business.Requests;
 using VotingApp.Business.Responses;
 using VotingApp.DataAccess.Interfaces;
 using VotingApp.Entities;
@@ -7,10 +8,11 @@ namespace VotingApp.Business.Services;
 public sealed class PollService : IPollService
 {
     private readonly IPollRepository _pollRepository;
+    private readonly IMapper _mapper;
 
-    public PollService(IPollRepository pollRepository)
-    {
+    public PollService(IPollRepository pollRepository, IMapper mapper) {
         _pollRepository = pollRepository;
+        this._mapper = mapper;
     }
 
     public Task<Poll> GetByIdAsync(int id)
@@ -23,12 +25,15 @@ public sealed class PollService : IPollService
         return _pollRepository.GetJoinedPolls(userId);
     }
 
-    public Task<PollResponse> GetPollId(Int32 id) {
-        throw new NotImplementedException();
+    public async Task<PollResponse> GetPollId(int id) {
+        Poll? poll = await _pollRepository.GetByIdAsync(id);
+        ArgumentNullException.ThrowIfNull(poll);
+        return _mapper.Map<PollResponse>(poll);
     }
 
-    public Task<List<PollResponse>> GetPollsByUserId(Int32 userId) {
-        throw new NotImplementedException();
+    public async Task<List<PollResponse>> GetPollsByUserId(int userId) {
+        List<Poll> polls = await _pollRepository.GetAllAsync(poll => poll.CreatedById == userId, false);
+        return _mapper.Map<List<PollResponse>>(polls);
     }
 
     public void Update(Poll poll) {
