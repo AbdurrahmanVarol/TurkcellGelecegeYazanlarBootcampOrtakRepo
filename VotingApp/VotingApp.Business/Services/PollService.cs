@@ -8,11 +8,32 @@ namespace VotingApp.Business.Services;
 public sealed class PollService : IPollService
 {
     private readonly IPollRepository _pollRepository;
+    private readonly IOptionRepository _optionRepository;
     private readonly IMapper _mapper;
 
-    public PollService(IPollRepository pollRepository, IMapper mapper) {
+    public PollService(IPollRepository pollRepository, IMapper mapper, IOptionRepository optionRepository)
+    {
         _pollRepository = pollRepository;
         this._mapper = mapper;
+        _optionRepository = optionRepository;
+    }
+
+    public async Task<bool> CreatePollAsync(CreatePollRequest createPollRequest)
+    {
+        var poll = new Poll
+        {
+
+            Title = createPollRequest.Title,
+            Description = createPollRequest.Description,
+            CreatedAt = DateTime.Now,
+            CreatedById = 1,
+            Options = createPollRequest.OptionNames.Select(p => new Option
+            {                
+                Value = p,
+            }).ToList()
+    };       
+        
+        return await _pollRepository.SaveChangesAsync() >0;
     }
 
     public Task<Poll> GetByIdAsync(int id)

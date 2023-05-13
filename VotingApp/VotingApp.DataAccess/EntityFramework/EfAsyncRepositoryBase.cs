@@ -15,6 +15,9 @@ public abstract class EfAsyncRepositoryBase<T, Context> : IAsyncRepository<T> wh
 
     public async Task AddAsync(T entity) {
         await Table.AddAsync(entity);
+    }  
+    public async Task AddRangeAsync(List<T> entities) {
+        await Table.AddRangeAsync(entities);
     }
 
     public void Delete(T entity) {

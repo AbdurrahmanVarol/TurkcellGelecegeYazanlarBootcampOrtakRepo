@@ -13,6 +13,7 @@ public interface IAsyncRepository<T> where T : Entity, new() {
     public Task<T?> GetByIdAsync(int id);
 
     public Task AddAsync(T entity);
+    Task AddRangeAsync(List<T> entities);
     public void Update(T entity);
     public void Delete(T entity);
     public Task DeleteAsync(int id);
