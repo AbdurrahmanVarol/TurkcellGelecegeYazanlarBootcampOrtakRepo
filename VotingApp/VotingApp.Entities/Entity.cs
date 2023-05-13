@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace VotingApp.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : ISoftDeletable
     {
         public Int32 Id { get; set; }
         public DateTime CreatedAt { get; set; }
+        public Boolean IsDeleted { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }
