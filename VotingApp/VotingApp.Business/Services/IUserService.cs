@@ -11,10 +11,10 @@ namespace VotingApp.Business.Services
 {
     public interface IUserService
     {
-        public Task<List<User>> GetAllAsync();
-        public Task<User> GetById(int id);
+        public Task<List<UserResponse>> GetAllAsync();
+        public Task<UserResponse> GetById(int id);
         public Task<User> GetByUsername(string username);
-        Task<List<User>> GetParticipantByPollId(int pollId);
+        Task<List<UserResponse>> GetParticipantByPollId(int pollId);
 
         public Task Add(User user);
         public Task Delete(int id);

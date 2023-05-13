@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VotingApp.Business.Responses;
 using VotingApp.DataAccess.EntityFramework;
 using VotingApp.DataAccess.EntityFramework.Contexts;
 using VotingApp.DataAccess.Interfaces;
@@ -13,46 +15,52 @@ namespace VotingApp.Business.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository UserRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-		public UserService(IUserRepository userRepository)
-		{
-			UserRepository = userRepository;
-		}
-
-		public Task<List<User>> GetAllAsync()
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
-            return this.UserRepository.GetAllAsync();
+            _userRepository = userRepository;
+            _mapper = mapper;
         }
 
-        public Task<User> GetById(int id)
+        public async Task<List<UserResponse>> GetAllAsync()
         {
-            return this.UserRepository.GetByIdAsync(id);
+            var users = await _userRepository.GetAllAsync();
+
+            return _mapper.Map<List<UserResponse>>(users);
+        }
+
+        public async Task<UserResponse> GetById(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+            return _mapper.Map<UserResponse>(user);
         }
         public async Task<User> GetByUsername(string username)
         {
-            return await this.UserRepository.GetAsync(p=>p.UserName.Equals(username));
+            return await _userRepository.GetAsync(p => p.UserName.Equals(username));
         }
         public async Task Add(User user)
         {
-            await this.UserRepository.AddAsync(user);
+            await _userRepository.AddAsync(user);
         }
 
         public async Task Delete(int id)
         {
-            await UserRepository.DeleteAsync(id);
+            await _userRepository.DeleteAsync(id);
         }
 
 
-        public  Task Update(User user)
+        public Task Update(User user)
         {
-             this.UserRepository.Update (user);
+            _userRepository.Update(user);
             return Task.CompletedTask;
         }
 
-        public async Task<List<User>> GetParticipantByPollId(int pollId)
+        public async Task<List<UserResponse>> GetParticipantByPollId(int pollId)
         {
-            return await UserRepository.GetParticipantByPollId(pollId);
+            var participants = await _userRepository.GetParticipantByPollId(pollId);
+            return _mapper.Map<List<UserResponse>>(participants);
         }
     }
 }
