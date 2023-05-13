@@ -1,17 +1,19 @@
-﻿@{
+﻿@model VotingApp.Business.Requests.LoginRequest
+@{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 <h1 class="text-center text-light">Kayıt Ol</h1>
-<form action="#" method="post">
+<div class="p-2 alert-danger" asp-validation-summary="ModelOnly"></div>
+<form asp-action="login" asp-controller="auth" method="post">
     <div class="form-group">
-        <label class="text-light" for="email">E-posta:</label>
-        <input type="email" class="form-control" id="email" placeholder="E-postanızı girin" name="email" required>
+        <label class="text-light" for="email">Kullanıcı adı:</label>
+        <input class="form-control" asp-for="@(Model.UserName)" placeholder="Kullanıcı adınızı girin">
     </div>
     <br />
     <div class="form-group">
         <label class="text-light" for="password">Şifre:</label>
-        <input type="password" class="form-control" id="password" placeholder="Şifrenizi girin" name="password" required>
+        <input class="form-control" asp-for="@(Model.Password)" placeholder="Şifrenizi girin">
     </div>
     <br />
     <div class="text-right">
@@ -21,5 +23,5 @@
 <br />
 <br />
 <div class="links">
-    <strong class="text-light">Hesabınız yok mu?</strong><a href="register"><strong>Kayıt Ol</strong></a>
+    <strong class="text-light">Hesabınız yok mu?</strong><a href="auth/register"><strong>Kayıt Ol</strong></a>
 </div>

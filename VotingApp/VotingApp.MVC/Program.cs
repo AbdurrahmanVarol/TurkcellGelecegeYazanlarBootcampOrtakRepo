@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using VotingApp.Business;
@@ -9,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(option =>
+    {
+        option.LoginPath = "/auth/login";
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    });
 
 builder.Services.AddBusinessLayer(builder.Configuration);
 builder.Services.AddDataAccessLayer(builder.Configuration);
@@ -28,6 +35,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -36,7 +45,7 @@ app.MapControllerRoute(
 
 using (var scope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope())
 {
-    scope.ServiceProvider.GetRequiredService<VotingDbContext>().Database.Migrate();
+    scope?.ServiceProvider.GetRequiredService<VotingDbContext>().Database.Migrate();
 }
 
 app.Run();
