@@ -19,9 +19,6 @@ internal class OptionTypeConfiguration : IEntityTypeConfiguration<Option>
            .HasForeignKey(p => p.OptionId)
            .OnDelete(DeleteBehavior.NoAction);
 
-        builder.Property<bool>("isDeleted");
-        builder.HasQueryFilter(m => EF.Property<bool>(m, "isDeleted") == false);
-
         builder.HasData(
                 new Option { Id = 1, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek 1" },
                 new Option { Id = 2, PollId = 1, CreatedAt = DateTime.Now, Value = "Seçenek 2" },
