@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Services;
 
@@ -22,7 +25,27 @@ namespace VotingApp.MVC.Controllers
         [HttpPost]
         public IActionResult Login(LoginRequest loginRequest)
         {
-            return View();
+            var user = _authService.LoginAsync(loginRequest).GetAwaiter().GetResult();
+            if (user == null)
+            {
+                return View();
+            }
+            List<Claim> claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                    new Claim("Name",user.FirstName),
+                    new Claim("FullName",user.FullName)
+                };
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            AuthenticationProperties authenticationProperties = new AuthenticationProperties
+            {
+                AllowRefresh = true,
+                IsPersistent = true
+            };
+
+            HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity), authenticationProperties).GetAwaiter().GetResult();
+            return RedirectToAction("index", "home");
         }
 
         [HttpGet]
@@ -32,9 +55,13 @@ namespace VotingApp.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
-            return View();
+            await _authService.RegisterAsync(registerRequest);
+            return Json(new
+            {
+                isSuccess = true,
+            });
         }
     }
 }

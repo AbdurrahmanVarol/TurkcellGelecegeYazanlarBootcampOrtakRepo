@@ -33,11 +33,13 @@ namespace VotingApp.Business.Services
             var user = await _userService.GetByUsername(loginRequest.UserName);
             if (user == null)
             {
-                throw new ArgumentException("Kullanıcı bulunamadı!!!");
+                //throw new ArgumentException("Kullanıcı bulunamadı!!!");
+                return null;
             }
             if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
-                throw new ArgumentException("Şifre hatalı!!!");
+                //throw new ArgumentException("Şifre hatalı!!!");
+                return null;
             }
             return _mapper.Map<UserResponse>(user);
         }
