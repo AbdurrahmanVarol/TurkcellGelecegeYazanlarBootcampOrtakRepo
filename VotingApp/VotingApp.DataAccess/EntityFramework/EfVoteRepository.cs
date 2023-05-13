@@ -14,6 +14,15 @@ public sealed class EfVoteRepository : EfAsyncRepositoryBase<Vote, VotingDbConte
     }  
     public Task<List<VoteDetail>> GetVoteDetailByPolls(int pollId)
     {
+        //return _context.Votes.Include(x => x.Option)
+        //    .Where(vote => vote.Option.PollId == pollId && !vote.Option.IsDeleted)
+        //    .GroupBy(vote => vote.OptionId)
+        //    .OrderByDescending(x => x.Count(p => !p.IsDeleted))
+        //    .Select(x => new VoteDetail {
+        //        Option = x.Select(a => a.Option).FirstOrDefault(),
+        //        NumberOfOption = x.Count(p => !p.IsDeleted)
+
+        //    }).ToListAsync();
         return (from vote in _context.Votes
                 join option in _context.Options on vote.OptionId equals option.Id
                 where option.PollId == pollId
