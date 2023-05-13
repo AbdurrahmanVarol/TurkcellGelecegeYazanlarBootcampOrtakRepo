@@ -1,8 +1,65 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "CreatePoll";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>CreatePoll</h1>
+<div>
+    <input id="title" class="form-control" name="title" placeholder="Anket başlığını giriniz..." maxlength="50" />
+</div>
+<div class="mt-3">
+    <textarea id="description" class="form-control" name="description" placeholder="Anket açıklamasını giriniz..." maxlength="50"></textarea>
+</div>
+<div class="mt-3 d-flex">
+    <input id="optionName" class="form-control" name="optionName" placeholder="Seçenek adını giriniz..." maxlength="50" />
+    <button type="button" class="btn btn-success" onclick="addOption()">Seçenek ekle</button>
+</div>
+<div id="options">
+    <ul id="optionList" class="list-group">
+    </ul>
+</div>
+<button id="submit" class="btn btn-outline-success" name="submit" type="button" onclick="submitData()">Kaydet</button>
 
+<script>
+    let options = []
+
+    function addOption() {
+        let optionName = document.getElementById("optionName")
+        options.push(optionName.value)
+        showOptions()
+        optionName.value = ""
+    }
+
+    function showOptions() {
+        let optionList = document.getElementById("optionList")
+        let html = ``
+        for (let option of options) {
+            html += `<li class="list-group-item"><button type="button" class="btn btn-danger position-relative" onclick="removeFromOptions('${option}')"><span class="badge text-bg-danger">X</span></button> ${option}</li>`
+        }
+        optionList.innerHTML = html
+    }
+    function removeFromOptions(optionName) {
+        options.pop(optionName)
+        showOptions()
+    }
+
+    function submitData() {
+        let title = document.getElementById("title").value
+        let description = document.getElementById("description").value
+        let formData = {
+            Description: description,
+            title,
+            OptionNames: options
+        }
+        console.log(formData)
+        fetch("https://localhost:44322/poll/createpoll", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+    }
+
+</script>

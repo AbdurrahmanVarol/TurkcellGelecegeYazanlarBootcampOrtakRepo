@@ -1,11 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VotingApp.Business.Requests;
+using VotingApp.Business.Services;
 
 namespace VotingApp.MVC.Controllers
 {
     public class PollController : Controller
     {
-        
+        private readonly IPollService _pollService;
+
+        public PollController(IPollService pollService)
+        {
+            _pollService = pollService;
+        }
+
         [HttpGet]
         public IActionResult CreatePoll()
         {
@@ -13,9 +20,10 @@ namespace VotingApp.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePoll(CreatePollRequest request)
+        public IActionResult CreatePoll([FromBody] CreatePollRequest request)
         {
-            return View();
+            var result = _pollService.CreatePollAsync(request).GetAwaiter().GetResult();
+            return Json(new { isSuccess = result });
         }
 
         [HttpGet("/activePolls")]
