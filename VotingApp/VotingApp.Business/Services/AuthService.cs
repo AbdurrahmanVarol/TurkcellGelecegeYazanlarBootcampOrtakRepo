@@ -1,15 +1,26 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Responses;
+using VotingApp.Entities;
 
 namespace VotingApp.Business.Services
 {
     public class AuthService : IAuthService
     {
+        private readonly IUserService _userService;
+        private readonly IMapper _mapper;
+
+        public AuthService(IUserService userService, IMapper mapper)
+        {
+            _userService = userService;
+            _mapper = mapper;
+        }
+
         public void CreatePasswordHash(string password, out string passwordHash, out string passwordSalt)
         {
             using var hmac = new System.Security.Cryptography.HMACSHA512();
@@ -17,10 +28,18 @@ namespace VotingApp.Business.Services
             passwordHash = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password)));
         }
 
-        public Task<UserResponse> LoginAsync(LoginRequest loginRequest)
+        public async Task<UserResponse> LoginAsync(LoginRequest loginRequest)
         {
-            //TODO: Bu metot UserService oluşturulduktan sonra doldurulacak
-            throw new NotImplementedException();
+            var user = await _userService.GetByUsername(loginRequest.UserName);
+            if (user == null)
+            {
+                throw new ArgumentException("Kullanıcı bulunamadı!!!");
+            }
+            if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
+            {
+                throw new ArgumentException("Şifre hatalı!!!");
+            }
+            return _mapper.Map<UserResponse>(user);
         }
 
         public bool VerifyPasswordHash(string password, string passwordHash, string passwordSalt)
@@ -32,15 +51,24 @@ namespace VotingApp.Business.Services
             return passwordHash.Equals(computedHash);
         }
 
-        public Task RegisterAsync(RegisterRequest registerRequest)
+        public async Task RegisterAsync(RegisterRequest registerRequest)
         {
-            //TODO: Bu metot UserService oluşturulduktan sonra doldurulacak
             //TODO: Validasyon eklenecek
             string passwordHash = string.Empty;
             string passwordSalt = string.Empty;
 
             CreatePasswordHash(registerRequest.Password, out passwordHash, out passwordSalt);
-            throw new NotImplementedException();
+            var user = new User
+            {
+                FirstName = registerRequest.FirstName,
+                LastName = registerRequest.LastName,
+                Email = registerRequest.Email,
+                UserName = registerRequest.UserName,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                CreatedAt = DateTime.Now,
+            };
+            await _userService.Add(user);
         }
     }
 }

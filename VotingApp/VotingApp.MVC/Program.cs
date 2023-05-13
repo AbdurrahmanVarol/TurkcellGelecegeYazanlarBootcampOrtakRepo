@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using VotingApp.Business;
 using VotingApp.DataAccess;
 using VotingApp.DataAccess.EntityFramework.Contexts;
@@ -6,7 +7,8 @@ using VotingApp.DataAccess.EntityFramework.Contexts;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddBusinessLayer(builder.Configuration);
 builder.Services.AddDataAccessLayer(builder.Configuration);
@@ -27,8 +29,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",

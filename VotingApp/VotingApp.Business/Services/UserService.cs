@@ -33,20 +33,26 @@ namespace VotingApp.Business.Services
         {
             return await this.UserRepository.GetAsync(p=>p.UserName.Equals(username));
         }
-        public void Add(User user)
+        public async Task Add(User user)
         {
-            this.UserRepository.AddAsync(user);
+            await this.UserRepository.AddAsync(user);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            UserRepository.DeleteAsync(id);
+            await UserRepository.DeleteAsync(id);
         }
 
 
-        public void Update(User user)
+        public  Task Update(User user)
         {
-            this.UserRepository.Update(user);
+             this.UserRepository.Update (user);
+            return Task.CompletedTask;
+        }
+
+        public async Task<List<User>> GetParticipantByPollId(int pollId)
+        {
+            return await UserRepository.GetParticipantByPollId(pollId);
         }
     }
 }

@@ -22,7 +22,8 @@ internal class PollTypeConfiguration : IEntityTypeConfiguration<Poll>
           .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasData(
-            new Poll { Id = 1, CreatedAt = DateTime.Now, CreatedById = 1, Title = "Deneme", Description = "DenemeAciklama" }
+            new Poll { Id = 1, CreatedAt = DateTime.Now, CreatedById = 1, Title = "Deneme", Description = "DenemeAciklama" },
+            new Poll { Id = 2, CreatedAt = DateTime.Now, CreatedById = 1, Title = "Deneme 2", Description = "DenemeAciklama 2" }
             );
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Services;
+using VotingApp.Entities;
 
 namespace VotingApp.MVC.Controllers
 {
@@ -13,24 +14,18 @@ namespace VotingApp.MVC.Controllers
             _voteService = voteService;
         }
 
-        [HttpPost("createVote")]
+        [HttpPost]
         public async Task<JsonResult> CreateVote(CreateVoteRequest request)
         {
             var vote = await _voteService.AddAsync(request);
             return Json(vote);
         }
 
-        [HttpGet("getVotesByPollId/{id}")]
-        public async Task<JsonResult> GetVotesByPollId(int id)
+        [HttpGet("[controller]/getVoteReport/{id}")]
+        public async Task<JsonResult> GetVoteReport(int id)
         {
-            var votes = await _voteService.GetVotesByPollIdAsync(id);
-            return Json(votes);
-        }
-        [HttpGet("getVoteReport/{id}")]
-        public async Task<JsonResult> GetVoteReportByPollId(int id)
-        {
-            var votes = await _voteService.GetVoteReportByPollId(id);
-            return Json(votes);
+            var result = await _voteService.GetVoteReportByPollId(id);
+            return Json(result);
         }
     }
 }

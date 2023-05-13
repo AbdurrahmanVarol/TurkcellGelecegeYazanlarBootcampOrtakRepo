@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VotingApp.DataAccess.EntityFramework.Contexts;
 
@@ -11,9 +12,11 @@ using VotingApp.DataAccess.EntityFramework.Contexts;
 namespace VotingApp.DataAccess.Migrations
 {
     [DbContext(typeof(VotingDbContext))]
-    partial class VotingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230507172536_AddMoreSeedData")]
+    partial class AddMoreSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,12 +32,6 @@ namespace VotingApp.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<int>("PollId")
                         .HasColumnType("int");
@@ -55,40 +52,35 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6156),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(2704),
                             PollId = 1,
                             Value = "Seçenek 1"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6233),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(2714),
                             PollId = 1,
                             Value = "Seçenek 2"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6236),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(2716),
                             PollId = 2,
                             Value = "Seçenek 1"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6238),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(2717),
                             PollId = 2,
                             Value = "Seçenek 2"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6240),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(2718),
                             PollId = 2,
                             Value = "Seçenek 3"
                         });
@@ -105,14 +97,8 @@ namespace VotingApp.DataAccess.Migrations
                     b.Property<int>("CreatedById")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(50)");
@@ -130,19 +116,17 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9523),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(5365),
                             CreatedById = 1,
                             Description = "DenemeAciklama",
-                            IsDeleted = false,
                             Title = "Deneme"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9529),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 431, DateTimeKind.Local).AddTicks(5372),
                             CreatedById = 1,
                             Description = "DenemeAciklama 2",
-                            IsDeleted = false,
                             Title = "Deneme 2"
                         });
                 });
@@ -155,18 +139,12 @@ namespace VotingApp.DataAccess.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(50)");
@@ -196,10 +174,9 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4345),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(5662),
                             Email = "abdurrahman@gmail.com",
                             FirstName = "Abdurrahman",
-                            IsDeleted = false,
                             LastName = "Varol",
                             PasswordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==",
                             PasswordSalt = "8qjYoxBQ2SgvH7vcbDsPbus2YFpicja5cDbz9IL6hJIgS4gTgr5uq1ADDLy7GHsIEY+0otBju+h74HRuNuFnU25/HWCXOjdKqPlksusj7mNjAR6rk9K9Oy4s1wIySzCoy3xi205Kqhgb4NJ0UcryFCvT6G/9QDQ63A9NyNVQ8s0=",
@@ -208,10 +185,9 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4351),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(5670),
                             Email = "bertan@gmail.com",
                             FirstName = "Bertan",
-                            IsDeleted = false,
                             LastName = "Tekgöz",
                             PasswordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==",
                             PasswordSalt = "8qjYoxBQ2SgvH7vcbDsPbus2YFpicja5cDbz9IL6hJIgS4gTgr5uq1ADDLy7GHsIEY+0otBju+h74HRuNuFnU25/HWCXOjdKqPlksusj7mNjAR6rk9K9Oy4s1wIySzCoy3xi205Kqhgb4NJ0UcryFCvT6G/9QDQ63A9NyNVQ8s0=",
@@ -220,10 +196,9 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4353),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(5672),
                             Email = "yalcin@gmail.com",
                             FirstName = "Yalçın",
-                            IsDeleted = false,
                             LastName = "Selçuk",
                             PasswordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==",
                             PasswordSalt = "8qjYoxBQ2SgvH7vcbDsPbus2YFpicja5cDbz9IL6hJIgS4gTgr5uq1ADDLy7GHsIEY+0otBju+h74HRuNuFnU25/HWCXOjdKqPlksusj7mNjAR6rk9K9Oy4s1wIySzCoy3xi205Kqhgb4NJ0UcryFCvT6G/9QDQ63A9NyNVQ8s0=",
@@ -232,10 +207,9 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4355),
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(5674),
                             Email = "orhan@gmail.com",
                             FirstName = "Orhan",
-                            IsDeleted = false,
                             LastName = "Onar",
                             PasswordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==",
                             PasswordSalt = "8qjYoxBQ2SgvH7vcbDsPbus2YFpicja5cDbz9IL6hJIgS4gTgr5uq1ADDLy7GHsIEY+0otBju+h74HRuNuFnU25/HWCXOjdKqPlksusj7mNjAR6rk9K9Oy4s1wIySzCoy3xi205Kqhgb4NJ0UcryFCvT6G/9QDQ63A9NyNVQ8s0=",
@@ -250,12 +224,6 @@ namespace VotingApp.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<int>("OptionId")
                         .HasColumnType("int");
@@ -278,64 +246,56 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6565),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7381),
                             OptionId = 1,
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6570),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7387),
                             OptionId = 1,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6571),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7389),
                             OptionId = 1,
                             UserId = 3
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6575),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7390),
                             OptionId = 2,
                             UserId = 4
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6576),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7391),
                             OptionId = 3,
                             UserId = 1
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6577),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7392),
                             OptionId = 4,
                             UserId = 2
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7393),
                             OptionId = 5,
                             UserId = 3
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578),
-                            IsDeleted = false,
+                            CreatedAt = new DateTime(2023, 5, 7, 20, 25, 36, 432, DateTimeKind.Local).AddTicks(7394),
                             OptionId = 5,
                             UserId = 4
                         });
