@@ -43,7 +43,7 @@ internal class UserTypeConfiguration : IEntityTypeConfiguration<User>
         var passwordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==";
         builder.HasData(
             new User { Id = 1, CreatedAt = DateTime.Now, FirstName = "Abdurrahman", LastName = "Varol", Email = "abdurrahman@gmail.com", UserName = "abdurrahman", PasswordSalt = passwordSalt, PasswordHash = passwordHash },
-            new User { Id = 2, CreatedAt = DateTime.Now, FirstName = "Bertan", LastName = "Tekgöz", Email = "bertan@gmail.com", UserName = "bertan", PasswordSalt = passwordSalt, PasswordHash = passwordHash },
+            new User { Id = 2, CreatedAt = DateTime.Now, FirstName = "Bertan", LastName = "Tokgöz", Email = "bertan@gmail.com", UserName = "bertan", PasswordSalt = passwordSalt, PasswordHash = passwordHash },
             new User { Id = 3, CreatedAt = DateTime.Now, FirstName = "Yalçın", LastName = "Selçuk", Email = "yalcin@gmail.com", UserName = "yalcin", PasswordSalt = passwordSalt, PasswordHash = passwordHash },
             new User { Id = 4, CreatedAt = DateTime.Now, FirstName = "Orhan", LastName = "Onar", Email = "orhan@gmail.com", UserName = "orhan", PasswordSalt = passwordSalt, PasswordHash = passwordHash }
             );
