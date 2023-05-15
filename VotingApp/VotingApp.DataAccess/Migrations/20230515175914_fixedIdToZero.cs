@@ -11,53 +11,13 @@ namespace VotingApp.DataAccess.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "votes",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "users",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "polls",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "options",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .Annotation("SqlServer:Identity", "1, 1");
-
             migrationBuilder.UpdateData(
                 schema: "vote_db",
                 table: "options",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4203));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(6993));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -65,7 +25,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4221));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7004));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -73,7 +33,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4223));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7005));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -81,7 +41,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4225));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7006));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -89,7 +49,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4227));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7007));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -97,7 +57,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(41));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(9871));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -105,7 +65,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(53));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(9905));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -113,15 +73,15 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7562));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3418));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
                 table: "users",
                 keyColumn: "Id",
                 keyValue: 2,
-                columns: new[] { "CreatedAt", "LastName" },
-                values: new object[] { new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7575), "Tokgöz" });
+                column: "CreatedAt",
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3450));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -129,7 +89,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7577));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3452));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -137,7 +97,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7580));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3454));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -145,7 +105,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1806));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5145));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -153,7 +113,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1813));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5148));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -161,7 +121,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1815));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5150));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -169,7 +129,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1816));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5151));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -177,7 +137,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1818));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5152));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -185,7 +145,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1819));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5153));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -193,7 +153,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1820));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5154));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -201,59 +161,19 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1984));
+                value: new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5155));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "votes",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "users",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "polls",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                schema: "vote_db",
-                table: "options",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
-
             migrationBuilder.UpdateData(
                 schema: "vote_db",
                 table: "options",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6156));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(1217));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -261,7 +181,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6233));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(1229));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -269,7 +189,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6236));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(1231));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -277,7 +197,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6238));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(1232));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -285,7 +205,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6240));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(1233));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -293,7 +213,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9523));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(4150));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -301,7 +221,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9529));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(4155));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -309,15 +229,15 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4345));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(7638));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
                 table: "users",
                 keyColumn: "Id",
                 keyValue: 2,
-                columns: new[] { "CreatedAt", "LastName" },
-                values: new object[] { new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4351), "Tekgöz" });
+                column: "CreatedAt",
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(7645));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -325,7 +245,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4353));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(7647));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -333,7 +253,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4355));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(7649));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -341,7 +261,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6565));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9599));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -349,7 +269,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6570));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9604));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -357,7 +277,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6571));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9605));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -365,7 +285,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6575));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9606));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -373,7 +293,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6576));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9608));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -381,7 +301,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6577));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9609));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -389,7 +309,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9610));
 
             migrationBuilder.UpdateData(
                 schema: "vote_db",
@@ -397,7 +317,7 @@ namespace VotingApp.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "CreatedAt",
-                value: new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578));
+                value: new DateTime(2023, 5, 15, 20, 32, 24, 525, DateTimeKind.Local).AddTicks(9611));
         }
     }
 }
