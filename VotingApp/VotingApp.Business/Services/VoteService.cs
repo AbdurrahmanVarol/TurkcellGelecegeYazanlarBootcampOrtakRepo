@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Responses;
+using VotingApp.DataAccess.EntityFramework;
 using VotingApp.DataAccess.Interfaces;
 using VotingApp.Entities;
 using VotingApp.Entities.ComplexTypes;
@@ -32,6 +33,7 @@ namespace VotingApp.Business.Services
         {
             var vote = _mapper.Map<Vote>(createVoteRequest);
             await _voteRepository.AddAsync(vote);
+            await _voteRepository.SaveChangesAsync();
             return _mapper.Map<VoteResponse>(vote);
         }
 
@@ -88,6 +90,7 @@ namespace VotingApp.Business.Services
             }
             var vote = _mapper.Map<Vote>(updateVoteRequest);
             _voteRepository.Update(vote);
+            await _voteRepository.SaveChangesAsync();
             return _mapper.Map<VoteResponse>(vote);
         }
     }

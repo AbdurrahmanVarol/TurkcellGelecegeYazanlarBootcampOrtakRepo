@@ -10,8 +10,8 @@ public static class EntityConfigurationExtensions {
         builder.HasIndex(x => x.Id).IsUnique();
 
         builder.Property(x => x.Id)
-                .IsRequired(true)
-                .ValueGeneratedNever();
+                .ValueGeneratedOnAdd()
+                .IsRequired(true);
         return builder;
     }
 
