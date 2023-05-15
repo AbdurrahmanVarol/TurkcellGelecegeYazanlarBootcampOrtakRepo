@@ -20,14 +20,15 @@ public sealed class PollService : IPollService {
             Title = createPollRequest.Title,
             Description = createPollRequest.Description,
             CreatedAt = DateTime.Now,
-            CreatedById = 1,
-            Options = createPollRequest.OptionNames.Select(p => new Option {
+            CreatedById = createPollRequest.CreatedById,
+            Options = createPollRequest.OptionNames.Select(p => new Option
+            {
                 Value = p,
             }).ToList()
         };
         await _pollRepository.AddAsync(poll);
-        await _pollRepository.SaveChangesAsync();
-        return await _pollRepository.SaveChangesAsync() > 0;
+        var result = await _pollRepository.SaveChangesAsync() > 0;
+        return result;
     }
 
     public async Task<Poll> GetByIdAsync(int id) {
