@@ -9,57 +9,73 @@
 <div class="mt-3">
     <textarea id="description" class="form-control" name="description" placeholder="Anket açıklamasını giriniz..." maxlength="50"></textarea>
 </div>
-<div class="mt-3 d-flex">
+<div class="mt-3 mb-1 d-flex gap-2">
     <input id="optionName" class="form-control" name="optionName" placeholder="Seçenek adını giriniz..." maxlength="50" />
     <button type="button" class="btn btn-success" onclick="addOption()">Seçenek ekle</button>
 </div>
-<div id="options">
+<div id="options" >
     <ul id="optionList" class="list-group">
     </ul>
 </div>
-<button id="submit" class="btn btn-outline-success" name="submit" type="button" onclick="submitData()">Kaydet</button>
+<button id="submit" class="btn btn-outline-success mt-3" name="submit" type="button" onclick="submitData()">Kaydet</button>
 
-<script>
-    let options = []
+@section Scripts{
+    <script>
+        let options = []
 
-    function addOption() {
-        let optionName = document.getElementById("optionName")
-        options.push(optionName.value)
-        showOptions()
-        optionName.value = ""
-    }
-
-    function showOptions() {
-        let optionList = document.getElementById("optionList")
-        let html = ``
-        for (let option of options) {
-            html += `<li class="list-group-item"><button type="button" class="btn btn-danger position-relative" onclick="removeFromOptions('${option}')"><span class="badge text-bg-danger">X</span></button> ${option}</li>`
+        function addOption() {
+            let optionName = document.getElementById("optionName")
+            options.push(optionName.value)
+            showOptions()
+            optionName.value = ""
         }
-        optionList.innerHTML = html
-    }
-    function removeFromOptions(optionName) {
-        options.pop(optionName)
-        showOptions()
-    }
 
-    function submitData() {
-        let title = document.getElementById("title").value
-        let description = document.getElementById("description").value
-        let formData = {
-            Description: description,
-            title,
-            OptionNames: options
+        function showOptions() {
+            let optionList = document.getElementById("optionList")
+            let html = ``
+            for (let option of options) {
+                html += `<li class="list-group-item"><button type="button" class="btn btn-danger position-relative" onclick="removeFromOptions('${option}')"><span class="badge text-bg-danger">X</span></button> ${option}</li>`
+            }
+            optionList.innerHTML = html
         }
-        console.log(formData)
-        fetch("https://localhost:44322/poll/createpoll", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }
+        function removeFromOptions(optionName) {
+            options.pop(optionName)
+            showOptions()
+        }
 
-</script>
+        function submitData() {
+            let title = document.getElementById("title").value
+            let description = document.getElementById("description").value
+            let formData = {
+                Description: description,
+                title,
+                OptionNames: options
+            }
+            console.log(formData)
+            fetch("https://localhost:44322/poll/createpoll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.isSuccess){
+                        alertify.success('Anket oluşturuldu')
+                        clearForm()
+                    }
+                    else{
+                        alertify.success('Anket oluşturma işleminde bir hata oluştu!!!')
+                    }
+                })
+        }
+        const clearForm = ()=>{
+            document.getElementById("title").value = ""
+            document.getElementById("description").value = ""
+            options = []
+            showOptions()
+        }
+
+    </script>
+}
