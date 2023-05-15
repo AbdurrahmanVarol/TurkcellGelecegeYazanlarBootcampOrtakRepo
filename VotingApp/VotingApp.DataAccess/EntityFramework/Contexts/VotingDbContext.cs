@@ -25,8 +25,8 @@ public sealed class VotingDbContext : DbContext {
 
         foreach(EntityEntry<Entity> data in datas) {
             _ = data.State switch {
-                EntityState.Added => data.Entity.CreatedAt = DateTime.UtcNow,
-                _ => DateTime.UtcNow,
+                EntityState.Added => data.Entity.CreatedAt = DateTime.Now,
+                _ => DateTime.Now,
             };
         }
 

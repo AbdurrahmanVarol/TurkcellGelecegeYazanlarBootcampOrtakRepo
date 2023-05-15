@@ -21,7 +21,7 @@ namespace VotingApp.DataAccess.Migrations
                 schema: "vote_db",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(255)", nullable: false),
@@ -40,7 +40,7 @@ namespace VotingApp.DataAccess.Migrations
                 schema: "vote_db",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     CreatedById = table.Column<int>(type: "int", nullable: false),
@@ -62,7 +62,7 @@ namespace VotingApp.DataAccess.Migrations
                 schema: "vote_db",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("SqlServer:Identity", "1, 1"),
                     Value = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     PollId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -83,7 +83,7 @@ namespace VotingApp.DataAccess.Migrations
                 schema: "vote_db",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false).Annotation("SqlServer:Identity", "1, 1"),
                     OptionId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)

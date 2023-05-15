@@ -58,7 +58,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4203),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(6993),
                             IsDeleted = false,
                             PollId = 1,
                             Value = "Seçenek 1"
@@ -66,7 +66,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4221),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7004),
                             IsDeleted = false,
                             PollId = 1,
                             Value = "Seçenek 2"
@@ -74,7 +74,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4223),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7005),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 1"
@@ -82,7 +82,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4225),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7006),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 2"
@@ -90,7 +90,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 666, DateTimeKind.Local).AddTicks(4227),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(7007),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 3"
@@ -136,7 +136,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(41),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(9871),
                             CreatedById = 1,
                             Description = "DenemeAciklama",
                             IsDeleted = false,
@@ -145,7 +145,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(53),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 608, DateTimeKind.Local).AddTicks(9905),
                             CreatedById = 1,
                             Description = "DenemeAciklama 2",
                             IsDeleted = false,
@@ -205,7 +205,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7562),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3418),
                             Email = "abdurrahman@gmail.com",
                             FirstName = "Abdurrahman",
                             IsDeleted = false,
@@ -217,7 +217,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7575),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3450),
                             Email = "bertan@gmail.com",
                             FirstName = "Bertan",
                             IsDeleted = false,
@@ -229,7 +229,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7577),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3452),
                             Email = "yalcin@gmail.com",
                             FirstName = "Yalçın",
                             IsDeleted = false,
@@ -241,7 +241,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 667, DateTimeKind.Local).AddTicks(7580),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(3454),
                             Email = "orhan@gmail.com",
                             FirstName = "Orhan",
                             IsDeleted = false,
@@ -290,7 +290,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1806),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5145),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 1
@@ -298,7 +298,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1813),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5148),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 2
@@ -306,7 +306,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1815),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5150),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 3
@@ -314,7 +314,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1816),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5151),
                             IsDeleted = false,
                             OptionId = 2,
                             UserId = 4
@@ -322,7 +322,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1818),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5152),
                             IsDeleted = false,
                             OptionId = 3,
                             UserId = 1
@@ -330,7 +330,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1819),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5153),
                             IsDeleted = false,
                             OptionId = 4,
                             UserId = 2
@@ -338,7 +338,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1820),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5154),
                             IsDeleted = false,
                             OptionId = 5,
                             UserId = 3
@@ -346,7 +346,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2023, 5, 15, 16, 59, 53, 668, DateTimeKind.Local).AddTicks(1984),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 59, 14, 609, DateTimeKind.Local).AddTicks(5155),
                             IsDeleted = false,
                             OptionId = 5,
                             UserId = 4

@@ -17,12 +17,11 @@ public class SoftDeleteInterceptor : SaveChangesInterceptor {
             switch(entry.State) {
                 case EntityState.Added:
                     entry.Entity.IsDeleted = false;
-                    entry.Entity.DeletedAt = null;
                     break;
                 case EntityState.Deleted:
                     entry.State = EntityState.Modified;
                     eventData.Context.Entry(entry.Entity).Entity.IsDeleted = true;
-                    eventData.Context.Entry(entry.Entity).Entity.DeletedAt = DateTime.UtcNow;
+                    eventData.Context.Entry(entry.Entity).Entity.DeletedAt = DateTime.Now;
                     break;
             }
         }
