@@ -12,8 +12,8 @@ using VotingApp.DataAccess.EntityFramework.Contexts;
 namespace VotingApp.DataAccess.Migrations
 {
     [DbContext(typeof(VotingDbContext))]
-    [Migration("20230513075122_addedSoftDelete")]
-    partial class addedSoftDelete
+    [Migration("20230515173352_initiliaze")]
+    partial class initiliaze
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,10 @@ namespace VotingApp.DataAccess.Migrations
             modelBuilder.Entity("VotingApp.Entities.Option", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -58,7 +61,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6156),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 885, DateTimeKind.Local).AddTicks(7049),
                             IsDeleted = false,
                             PollId = 1,
                             Value = "Seçenek 1"
@@ -66,7 +69,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6233),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 885, DateTimeKind.Local).AddTicks(7063),
                             IsDeleted = false,
                             PollId = 1,
                             Value = "Seçenek 2"
@@ -74,7 +77,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6236),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 885, DateTimeKind.Local).AddTicks(7064),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 1"
@@ -82,7 +85,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6238),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 885, DateTimeKind.Local).AddTicks(7066),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 2"
@@ -90,7 +93,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(6240),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 885, DateTimeKind.Local).AddTicks(7067),
                             IsDeleted = false,
                             PollId = 2,
                             Value = "Seçenek 3"
@@ -100,7 +103,10 @@ namespace VotingApp.DataAccess.Migrations
             modelBuilder.Entity("VotingApp.Entities.Poll", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -133,7 +139,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9523),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(1908),
                             CreatedById = 1,
                             Description = "DenemeAciklama",
                             IsDeleted = false,
@@ -142,7 +148,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 625, DateTimeKind.Local).AddTicks(9529),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(1917),
                             CreatedById = 1,
                             Description = "DenemeAciklama 2",
                             IsDeleted = false,
@@ -153,7 +159,10 @@ namespace VotingApp.DataAccess.Migrations
             modelBuilder.Entity("VotingApp.Entities.User", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -199,7 +208,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4345),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(8246),
                             Email = "abdurrahman@gmail.com",
                             FirstName = "Abdurrahman",
                             IsDeleted = false,
@@ -211,11 +220,11 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4351),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(8255),
                             Email = "bertan@gmail.com",
                             FirstName = "Bertan",
                             IsDeleted = false,
-                            LastName = "Tekgöz",
+                            LastName = "Tokgöz",
                             PasswordHash = "WMA4dhrMhW2ZW3+8wIlpzcew0pVATmgSq4WZ+tjmiOW1R09J5lKdcxR16RIT1ds44FjeYM0o+ksAeTzSX6aXZQ==",
                             PasswordSalt = "8qjYoxBQ2SgvH7vcbDsPbus2YFpicja5cDbz9IL6hJIgS4gTgr5uq1ADDLy7GHsIEY+0otBju+h74HRuNuFnU25/HWCXOjdKqPlksusj7mNjAR6rk9K9Oy4s1wIySzCoy3xi205Kqhgb4NJ0UcryFCvT6G/9QDQ63A9NyNVQ8s0=",
                             UserName = "bertan"
@@ -223,7 +232,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4353),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(8257),
                             Email = "yalcin@gmail.com",
                             FirstName = "Yalçın",
                             IsDeleted = false,
@@ -235,7 +244,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(4355),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 886, DateTimeKind.Local).AddTicks(8259),
                             Email = "orhan@gmail.com",
                             FirstName = "Orhan",
                             IsDeleted = false,
@@ -249,7 +258,10 @@ namespace VotingApp.DataAccess.Migrations
             modelBuilder.Entity("VotingApp.Entities.Vote", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -281,7 +293,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6565),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(899),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 1
@@ -289,7 +301,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6570),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(905),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 2
@@ -297,7 +309,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6571),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(907),
                             IsDeleted = false,
                             OptionId = 1,
                             UserId = 3
@@ -305,7 +317,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6575),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(908),
                             IsDeleted = false,
                             OptionId = 2,
                             UserId = 4
@@ -313,7 +325,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6576),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(909),
                             IsDeleted = false,
                             OptionId = 3,
                             UserId = 1
@@ -321,7 +333,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6577),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(910),
                             IsDeleted = false,
                             OptionId = 4,
                             UserId = 2
@@ -329,7 +341,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(911),
                             IsDeleted = false,
                             OptionId = 5,
                             UserId = 3
@@ -337,7 +349,7 @@ namespace VotingApp.DataAccess.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2023, 5, 13, 10, 51, 22, 626, DateTimeKind.Local).AddTicks(6578),
+                            CreatedAt = new DateTime(2023, 5, 15, 20, 33, 51, 887, DateTimeKind.Local).AddTicks(913),
                             IsDeleted = false,
                             OptionId = 5,
                             UserId = 4
