@@ -43,18 +43,20 @@ namespace VotingApp.Business.Services
         public async Task Add(User user)
         {
             await _userRepository.AddAsync(user);
+            await _userRepository.SaveChangesAsync();
         }
 
         public async Task Delete(int id)
         {
             await _userRepository.DeleteAsync(id);
+            await _userRepository.SaveChangesAsync();
         }
 
 
-        public Task Update(User user)
+        public async Task Update(User user)
         {
             _userRepository.Update(user);
-            return Task.CompletedTask;
+            await _userRepository.SaveChangesAsync();
         }
 
         public async Task<List<UserResponse>> GetParticipantByPollId(int pollId)
