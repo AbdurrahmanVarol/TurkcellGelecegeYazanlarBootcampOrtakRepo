@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Services;
 using VotingApp.Entities;
 
 namespace VotingApp.MVC.Controllers
 {
+    [Authorize]
     public class VoteController : Controller
     {
         private readonly IVoteService _voteService;

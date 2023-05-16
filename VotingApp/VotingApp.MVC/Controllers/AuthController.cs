@@ -41,11 +41,18 @@ namespace VotingApp.MVC.Controllers
             AuthenticationProperties authenticationProperties = new AuthenticationProperties
             {
                 AllowRefresh = true,
-                IsPersistent = true
+                IsPersistent = loginRequest.IsKeepLoggedIn,
+                
             };
 
             HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity), authenticationProperties).GetAwaiter().GetResult();
             return RedirectToAction("index", "home");
+        }
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync().GetAwaiter().GetResult();
+            return RedirectToAction("login");
         }
 
         [HttpGet]

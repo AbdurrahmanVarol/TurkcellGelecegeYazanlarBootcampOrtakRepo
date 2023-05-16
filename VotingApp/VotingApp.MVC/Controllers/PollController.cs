@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Services;
 
 namespace VotingApp.MVC.Controllers
 {
+    [Authorize]
     public class PollController : Controller
     {
         private readonly IPollService _pollService;
-        private int UserId => int.Parse(User.Claims.Where(x => x.Type == ClaimTypes.NameIdentifier).First().Value);
+        private int UserId => int.Parse(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
         public PollController(IPollService pollService)
         {
             _pollService = pollService;
@@ -28,16 +30,16 @@ namespace VotingApp.MVC.Controllers
             return Json(new { isSuccess = result });
         }
 
-        [HttpGet("/activePolls")]
-        public IActionResult GetActivePolls()
+        [HttpGet]
+        public IActionResult ActivePolls()
         {
-            return Json(null);
+            return View();
         }
         
-        [HttpGet("/joinedPolls")]
-        public IActionResult GetJoinedPolls()
+        [HttpGet]
+        public IActionResult CreatedPolls()
         {
-            return Json(null);
+            return View();
         }
     }
 }

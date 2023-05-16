@@ -3,25 +3,23 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
-<h1 class="text-center text-light">Kayıt Ol</h1>
+<h1 class="text-center text-light mb-4">Giriş Yap</h1>
 <div class="p-2 alert-danger" asp-validation-summary="ModelOnly"></div>
 <form asp-action="login" asp-controller="auth" method="post">
-    <div class="form-group">
-        <label class="text-light" for="email">Kullanıcı adı:</label>
+    <div class="mb-3 form-group">
         <input class="form-control" asp-for="@(Model.UserName)" placeholder="Kullanıcı adınızı girin">
     </div>
-    <br />
-    <div class="form-group">
-        <label class="text-light" for="password">Şifre:</label>
+    <div class="mb-3 form-group">
         <input class="form-control" asp-for="@(Model.Password)" type="password" placeholder="Şifrenizi girin">
     </div>
-    <br />
+    <div class="mb-3 form-check">
+        <input class="form-check-input" asp-for="IsKeepLoggedIn">
+        <label class="form-check-label text-light" asp-for="IsKeepLoggedIn">Beni hatırla</label>
+    </div>
     <div class="text-right">
         <button style="float: right;" type="submit" class="btn btn-success">Giriş Yap</button>
     </div>
 </form>
-<br />
-<br />
 <div class="links">
-    <strong class="text-light">Hesabınız yok mu?</strong><a href="auth/register"><strong>Kayıt Ol</strong></a>
+    <strong class="text-light">Hesabınız yok mu?</strong><a  asp-action="register" asp-controller="auth"><strong>Kayıt Ol</strong></a>
 </div>
