@@ -13,5 +13,6 @@ namespace VotingApp.Business.Requests
         public string UserName { get; set; }
         [Required(ErrorMessage = "Şifre adı boş geçilemez!")]
         public string Password { get; set; }
+        public bool IsKeepLoggedIn { get; set; }
     }
 }

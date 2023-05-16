@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using VotingApp.Business.Requests;
 using VotingApp.Business.Responses;
 using VotingApp.Entities;
+using VotingApp.Entities.ComplexTypes;
 
 namespace VotingApp.Business.Mapping
 {
@@ -21,6 +22,12 @@ namespace VotingApp.Business.Mapping
             CreateMap<User, UserResponse>().ReverseMap();
 
             CreateMap<Poll, PollResponse>().ReverseMap();
+            CreateMap<PollDetail,PollDetailResponse>()
+                .ForMember(p=>p.Id,q=>q.MapFrom(p=>p.Poll.Id))
+                .ForMember(p=>p.Title,q=>q.MapFrom(p=>p.Poll.Title))
+                .ForMember(p=>p.Description,q=>q.MapFrom(p=>p.Poll.Description))
+                .ForMember(p=>p.CreatedAt,q=>q.MapFrom(p=>p.Poll.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")))
+                .ReverseMap();
         }
     }
 }
