@@ -1,7 +1,8 @@
 ﻿using VotingApp.Entities;
+using VotingApp.Entities.ComplexTypes;
 
 namespace VotingApp.DataAccess.Interfaces;
 public interface IPollRepository : IAsyncRepository<Poll>
 {
-    Task<List<Poll>> GetJoinedPolls(int userId);
+    Task<List<PollDetail>> GetJoinedPolls(int userId);
 }

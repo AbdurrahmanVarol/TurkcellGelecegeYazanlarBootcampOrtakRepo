@@ -41,7 +41,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=auth}/{action=login}/{id?}");
+    pattern: "{controller=home}/{action=index}/{id?}");
 
 using (var scope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope())
 {
