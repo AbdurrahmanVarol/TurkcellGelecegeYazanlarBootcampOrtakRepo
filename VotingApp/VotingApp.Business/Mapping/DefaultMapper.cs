@@ -28,6 +28,9 @@ namespace VotingApp.Business.Mapping
                 .ForMember(p=>p.Description,q=>q.MapFrom(p=>p.Poll.Description))
                 .ForMember(p=>p.CreatedAt,q=>q.MapFrom(p=>p.Poll.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")))
                 .ReverseMap();
+
+            CreateMap<Poll, ActivePollResponse>();
+            CreateMap<Option, ActivePollOption>();
         }
     }
 }

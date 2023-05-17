@@ -32,4 +32,8 @@ public sealed class EfPollRepository : EfAsyncRepositoryBase<Poll, VotingDbConte
                 }
                ).ToListAsync();
     }
+
+    public async Task<List<Poll>> GetPollsWithOption() {
+        return await _context.Polls.Include(poll => poll.Options).ToListAsync();
+    }
 }

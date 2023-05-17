@@ -1,8 +1,45 @@
-﻿
+﻿@model List<ActivePollResponse>;
 @{
     ViewData["Title"] = "ActivePolls";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Aktif anketler</h1>
+@{
+    String accordionId = $"accordion-{Guid.NewGuid().ToString()[^8..]}";
+    Boolean isShow = true;
+}
 
+<div id="@accordionId" name="poll-accordion" class="accordion mt-3">
+    @foreach(ActivePollResponse poll in Model) {
+        String pollId = $"poll-{poll.Id}";
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button@(isShow is false ? " collapsed" : "")" type="button" data-bs-toggle="collapse" data-bs-target="#@pollId" aria-expanded="true" aria-controls="@pollId">
+                    @poll.Title
+                </button>
+            </h2>
+            <div id="@pollId" class="accordion-collapse mt-2 collapse@(isShow ? " show" : "")" data-bs-parent="#@accordionId">
+                <div class="accordion-body">
+                    <p class="ms-2">
+                        @poll.Description
+                    </p>
+                    <ul>
+                        @foreach(ActivePollOption option in poll.Options) {
+                            String optionId = $"option-{option.Id}";
+                            <li class="form-check">
+                                <input class="form-check-input" type="radio" name="@pollId" id="@optionId">
+                                <label class="form-check-label" for="@optionId">
+                                    @option.Value
+                                </label>
+                            </li>
+                        }
+                    </ul>
+
+                    <button type="button" class="btn btn-primary mt-3 py-1 px-3">Kaydet</button>
+                </div>
+            </div>
+        </div>
+        isShow = false;
+    }
+</div>
