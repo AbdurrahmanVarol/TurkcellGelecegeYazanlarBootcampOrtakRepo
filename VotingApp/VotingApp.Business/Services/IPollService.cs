@@ -12,4 +12,5 @@ public interface IPollService {
     public Task<List<PollResponse>> GetPollsByUserId(int userId);
     public Task Update(Poll poll);
     public Task Delete(int id);
+    public Task<List<ActivePollResponse>> GetActivePolls();
 }
