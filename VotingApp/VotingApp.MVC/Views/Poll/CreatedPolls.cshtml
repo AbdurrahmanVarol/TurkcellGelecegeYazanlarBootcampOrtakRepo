@@ -1,8 +1,32 @@
-﻿
+﻿@model List<PollResponse>
 @{
     ViewData["Title"] = "CreatedPolls";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Oluşturduğun Anketler</h1>
+@if (!Model.Any())
+{
+    <div class="center-column">
+        <h1>Henüz bir anket oluşturmadınız</h1>
+        <h6>Anket oluşturma sayfasına <strong><a asp-action="createpoll" asp-controller="poll">burdan</a></strong> gidebilirsiniz.</h6>
+    </div>
+}
+else
+{
+    <h1>Oluşturduğun Anketler</h1>
+}
+<ol class="list-group list-group-numbered">
+    @foreach (var poll in Model)
+    {
+        <li class="poll-list-item list-group-item d-flex justify-content-between align-items-start" onclick="getData('@poll.Id')" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@poll.Id">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">@poll.Title</div>
+                @poll.Description
+                <br />
+                <small>@poll.CreatedAt</small>
+            </div>
+        </li>
+    }
+</ol>
+
 

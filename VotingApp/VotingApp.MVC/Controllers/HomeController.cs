@@ -13,6 +13,7 @@ namespace VotingApp.MVC.Controllers
         private readonly IPollService _pollService;
         private readonly IUserService _userService;
         private int UserId => int.Parse(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
+        private string FullName => User.Claims.First(x => x.Type == "FullName").Value;
         public HomeController(IPollService pollService, IUserService userService)
         {
             _pollService = pollService;
@@ -22,11 +23,10 @@ namespace VotingApp.MVC.Controllers
         public IActionResult Index()
         {
             var joinedPolls = _pollService.GetJoinedPollsAsync(UserId).GetAwaiter().GetResult();
-            var user = _userService.GetById(UserId).GetAwaiter().GetResult();
+            ViewBag.FullName = FullName;
             var viewModel = new PollViewModel
             {
                 Polls = joinedPolls,
-                User = user
             };
             return View(viewModel);
         }

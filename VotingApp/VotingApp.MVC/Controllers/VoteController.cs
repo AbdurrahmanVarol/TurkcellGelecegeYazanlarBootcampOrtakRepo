@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VotingApp.Business.Requests;
+using VotingApp.Business.Dtos.Requests.VoteRequests;
 using VotingApp.Business.Services;
 using VotingApp.Entities;
 

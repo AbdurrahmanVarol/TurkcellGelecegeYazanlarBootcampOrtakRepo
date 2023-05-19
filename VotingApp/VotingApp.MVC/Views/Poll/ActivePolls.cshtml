@@ -13,7 +13,7 @@
 <div id="@accordionId" name="poll-accordion" class="accordion mt-3">
     @foreach(ActivePollResponse poll in Model) {
         String pollId = $"poll-{poll.Id}";
-        <div class="accordion-item">
+        <div class="accordion-item mb-3">
             <h2 class="accordion-header">
                 <button class="accordion-button@(isShow is false ? " collapsed" : "")" type="button" data-bs-toggle="collapse" data-bs-target="#@pollId" aria-expanded="true" aria-controls="@pollId">
                     @poll.Title

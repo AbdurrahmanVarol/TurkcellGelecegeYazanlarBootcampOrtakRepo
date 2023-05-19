@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VotingApp.Business.Requests;
-using VotingApp.Business.Responses;
+using VotingApp.Business.Dtos.Requests.UserRequests;
+using VotingApp.Business.Dtos.Responses;
 using VotingApp.Entities;
 
 namespace VotingApp.Business.Services
