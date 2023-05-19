@@ -24,3 +24,10 @@ body {
 .poll-list-item{
     cursor:pointer;
 }
+.center-column{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
