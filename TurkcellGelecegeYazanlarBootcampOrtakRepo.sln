@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Business", "Votin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.MVC", "VotingApp\VotingApp.MVC\VotingApp.MVC.csproj", "{B1C6A068-07FB-4C58-B16E-534D2A203C82}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VotingApp.Business.Tests", "VotingApp\VotingApp.Business.Tests\VotingApp.Business.Tests.csproj", "{266B0B11-21C4-4167-8D48-305529F4C97F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{B1C6A068-07FB-4C58-B16E-534D2A203C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C6A068-07FB-4C58-B16E-534D2A203C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1C6A068-07FB-4C58-B16E-534D2A203C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266B0B11-21C4-4167-8D48-305529F4C97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266B0B11-21C4-4167-8D48-305529F4C97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266B0B11-21C4-4167-8D48-305529F4C97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266B0B11-21C4-4167-8D48-305529F4C97F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{593ECD80-8DDC-4AB9-95F4-8B4D37412F7B} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
 		{B7721A01-63B7-4673-ACD1-6A0CB9596556} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
 		{B1C6A068-07FB-4C58-B16E-534D2A203C82} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
+		{266B0B11-21C4-4167-8D48-305529F4C97F} = {EB7E91C2-8428-4C25-B4BC-F919BB3AD853}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2769A718-2010-422A-9804-C36B300C2C7A}
