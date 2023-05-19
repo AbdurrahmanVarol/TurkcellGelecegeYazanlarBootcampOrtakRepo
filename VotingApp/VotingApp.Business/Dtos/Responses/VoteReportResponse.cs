@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Entities.ComplexTypes;
 
-namespace VotingApp.Business.Responses
+namespace VotingApp.Business.Dtos.Responses
 {
     public class VoteReportResponse
     {

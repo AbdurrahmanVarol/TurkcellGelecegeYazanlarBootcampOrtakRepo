@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VotingApp.Business.Requests
+namespace VotingApp.Business.Dtos.Requests.UserRequests
 {
     public class LoginRequest
     {

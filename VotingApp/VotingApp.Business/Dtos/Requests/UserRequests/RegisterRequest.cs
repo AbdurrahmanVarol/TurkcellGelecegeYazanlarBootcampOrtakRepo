@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VotingApp.Business.Requests
+namespace VotingApp.Business.Dtos.Requests.UserRequests
 {
     public class RegisterRequest
     {
@@ -19,7 +19,7 @@ namespace VotingApp.Business.Requests
         public string UserName { get; set; }
         [Required(ErrorMessage = "Şifre boş geçilemez!")]
         public string Password { get; set; }
-        [Compare(otherProperty:"Password",ErrorMessage ="Şifre ve şifre tekrar aynı olmalı!")]
+        [Compare(otherProperty: "Password", ErrorMessage = "Şifre ve şifre tekrar aynı olmalı!")]
         [Required(ErrorMessage = "Şifre tekrar boş geçilemez!")]
         public string PasswordConfirm { get; set; }
     }

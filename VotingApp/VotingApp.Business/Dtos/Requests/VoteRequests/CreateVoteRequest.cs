@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VotingApp.Entities;
 
-namespace VotingApp.Business.Requests
+namespace VotingApp.Business.Dtos.Requests.VoteRequests
 {
     public class CreateVoteRequest
     {

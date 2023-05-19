@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VotingApp.Business.Requests
+namespace VotingApp.Business.Dtos.Responses
 {
-    public class CreatePollRequest
+    public class PollResponse
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int CreatedById { get; set; }
-        public List<string> OptionNames { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
