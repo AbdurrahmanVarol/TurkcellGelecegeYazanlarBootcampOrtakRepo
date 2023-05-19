@@ -46,7 +46,7 @@ public abstract class EfAsyncRepositoryBase<T, Context> : IAsyncRepository<T> wh
         return IsTracking(tracking, Query()).ToListAsync();
     }
 
-    public Task<List<T>> GetAllAsync(Expression<Func<T, bool>> expression, bool tracking) {
+    public Task<List<T>> GetAllAsync(Expression<Func<T, bool>> expression, bool tracking = false) {
         return IsTracking(tracking, Query(expression)).ToListAsync();
     }
 
