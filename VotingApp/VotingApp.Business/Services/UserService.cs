@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VotingApp.Business.Responses;
+using VotingApp.Business.Dtos.Responses;
 using VotingApp.DataAccess.EntityFramework;
 using VotingApp.DataAccess.EntityFramework.Contexts;
 using VotingApp.DataAccess.Interfaces;
