@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using VotingApp.Business.Requests;
+using VotingApp.Business.Dtos.Requests.PollRequests;
 using VotingApp.Business.Services;
 
 namespace VotingApp.MVC.Controllers
@@ -40,7 +40,8 @@ namespace VotingApp.MVC.Controllers
         [HttpGet]
         public IActionResult CreatedPolls()
         {
-            return View();
+            var polls = _pollService.GetPollsByCreatedById(UserId).GetAwaiter().GetResult();
+            return View(polls);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using VotingApp.Business.Responses;
+﻿using VotingApp.Business.Dtos.Responses;
 
 namespace VotingApp.MVC.Models
 {

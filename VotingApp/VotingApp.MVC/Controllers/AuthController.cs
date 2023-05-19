@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using VotingApp.Business.Requests;
 using VotingApp.Business.Services;
+using VotingApp.Business.Dtos.Requests.UserRequests;
 
 namespace VotingApp.MVC.Controllers
 {
