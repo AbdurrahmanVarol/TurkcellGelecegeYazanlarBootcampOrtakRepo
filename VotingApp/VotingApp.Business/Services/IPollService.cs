@@ -13,6 +13,7 @@ public interface IPollService
     public Task<List<PollResponse>> GetPollsByUserId(int userId);
     Task<List<PollResponse>> GetPollsByCreatedById(int createdById);
     public Task Update(UpdatePollRequest updatePollRequest);
-    public Task Delete(int id);
-    public Task<List<ActivePollResponse>> GetActivePolls();
+    public Task<List<ActivePollResponse>> GetActivePolls(int userId);
+    public Task DeletePollById(DeletePollRequest deletePollRequest);
+    public Task DeletePollAsSoftById(DeletePollRequest deletePollRequest);
 }

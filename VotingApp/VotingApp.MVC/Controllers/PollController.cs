@@ -33,7 +33,7 @@ namespace VotingApp.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> ActivePolls()
         {
-            var polls = await _pollService.GetActivePolls();
+            var polls = await _pollService.GetActivePolls(UserId);
             return View(polls);
         }
         

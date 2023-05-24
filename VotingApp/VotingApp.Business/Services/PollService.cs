@@ -40,9 +40,9 @@ public sealed class PollService : IPollService
         return await _pollRepository.GetByIdAsync(id);
     }
 
-    public async Task<List<ActivePollResponse>> GetActivePolls()
+    public async Task<List<ActivePollResponse>> GetActivePolls(int userId)
     {
-        List<Poll> polls = await _pollRepository.GetPollsWithOption();
+        List<Poll> polls = await _pollRepository.GetActivePolls(userId);
         return _mapper.Map<List<ActivePollResponse>>(polls);
     }
 
@@ -76,13 +76,13 @@ public sealed class PollService : IPollService
         //TODO:Refactor edilecek
         var poll = await _pollRepository.GetByIdAsync(updatePollRequest.Id) ?? throw new ArgumentNullException(nameof(updatePollRequest));
 
-        var addedOptions = updatePollRequest.Options.Where(p=>p.Id == null).ToList();
+        var addedOptions = updatePollRequest.Options.Where(p => p.Id == null).ToList();
         var removedOptions = poll.Options.Where(option => !updatePollRequest.Options
                                                           .Where(removedOption => removedOption.Id != null)
                                                           .Select(removedOption => removedOption.Id).Contains(option.Id)).ToList();
         poll.Title = updatePollRequest.Title;
         poll.Description = updatePollRequest.Description;
-        
+
         foreach (var option in addedOptions)
         {
             poll.Options.Add(new Option
@@ -100,10 +100,22 @@ public sealed class PollService : IPollService
         _pollRepository.Update(poll);
         await _pollRepository.SaveChangesAsync();
     }
-
-    public async Task Delete(int id)
+    public async Task DeletePollById(DeletePollRequest deletePollRequest)
     {
-        await _pollRepository.DeleteAsync(id);
+        await _pollRepository.DeleteAsync(deletePollRequest.Id);
+        await _pollRepository.SaveChangesAsync();
+    }
+
+    public async Task DeletePollAsSoftById(DeletePollRequest deletePollRequest)
+    {
+        var poll = await _pollRepository.GetByIdAsync(deletePollRequest.Id);
+        if (poll is null)
+        {
+            //TODO: Hata fırlat
+            return;
+        }
+        poll.IsDeleted = true;
+        _pollRepository.Update(poll);
         await _pollRepository.SaveChangesAsync();
     }
 }
