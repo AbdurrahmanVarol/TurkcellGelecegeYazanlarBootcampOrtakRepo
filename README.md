@@ -1,8 +1,9 @@
 # TurkcellGelecegeYazanlarBootcampOrtakRepo
 
-![1](https://user-images.githubusercontent.com/81808916/235147577-c2e15dc2-996c-4260-838f-634ff990bd27.png)
-![2](https://user-images.githubusercontent.com/81808916/235147596-a88d377b-8168-4701-a461-2d850ac510b9.png)
-![3](https://user-images.githubusercontent.com/81808916/235147605-5f43a347-0e35-4ec4-9c26-032a9420d7fd.png)
-![4](https://user-images.githubusercontent.com/81808916/235147609-680555c7-a578-4fad-bb62-3c5dcd576b3f.png)
-![5](https://user-images.githubusercontent.com/81808916/235147619-2f47aac1-1e1e-4de0-8fff-5f50fa6d3c0e.png)
-![6](https://user-images.githubusercontent.com/81808916/235147629-9ab0b823-73e3-446b-9f62-a2a81dec6fbe.png)
+![VotingApp_page-0001](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/59e33d68-df98-4ec0-9f8b-a6f40db7fd10)
+![VotingApp_page-0002](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/f01d876b-ef8e-4258-bfd1-682f364a5ce7)
+![VotingApp_page-0003](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/c0f26e4f-84ec-4cb8-85be-099e9210678d)
+![VotingApp_page-0004](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/6a7d20fb-1df8-447b-8208-24e9e309103f)
+![VotingApp_page-0005](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/d4e9daeb-93b1-439e-b0c9-e1c85f5c8995)
+![VotingApp_page-0006](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/d619f045-624a-49bf-8ddf-2d608402a51e)
+![VotingApp_page-0007](https://github.com/AbdurrahmanVarol/TurkcellGelecegeYazanlarBootcampOrtakRepo/assets/96303254/8503f6a2-cd27-420b-99ae-615735a8992c)
