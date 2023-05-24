@@ -36,4 +36,8 @@ public sealed class EfPollRepository : EfAsyncRepositoryBase<Poll, VotingDbConte
     public async Task<List<Poll>> GetPollsWithOption() {
         return await _context.Polls.Include(poll => poll.Options).ToListAsync();
     }
+    public async Task<List<Poll>> GetActivePolls(int userId)
+    {
+        return await _context.Polls.Include(p=>p.Options).Where(p=> !_context.Votes.Include(p=>p.Option).Any(v=>v.Option.PollId == p.Id && v.UserId == userId)).ToListAsync();
+    }
 }
