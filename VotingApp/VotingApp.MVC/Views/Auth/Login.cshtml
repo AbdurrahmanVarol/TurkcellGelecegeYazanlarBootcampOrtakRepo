@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 <h1 class="text-center text-light mb-4">Giriş Yap</h1>
+@if (TempData["LoginException"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["LoginException"]
+    </div>
+}
 <div class="p-2 alert-danger" asp-validation-summary="ModelOnly"></div>
 <form asp-action="login" asp-controller="auth" method="post">
     <div class="mb-3 form-group">

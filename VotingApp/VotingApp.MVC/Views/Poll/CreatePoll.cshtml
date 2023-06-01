@@ -3,6 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="mb-5">
+    <h1 class="text-dark-emphasis">Anket Oluşur</h1>
+</div>
+
 <div>
     <input id="title" class="form-control" name="title" placeholder="Anket başlığını giriniz..." maxlength="50" />
 </div>
@@ -14,7 +18,7 @@
     <button type="button" class="btn btn-success" onclick="addOption()">Seçenek ekle</button>
 </div>
 <div id="options" >
-    <ul id="optionList" class="list-group">
+    <ul id="optionList" class="list-group">        
     </ul>
 </div>
 <button id="submit" class="btn btn-outline-success mt-3" name="submit" type="button" onclick="submitData()">Kaydet</button>

@@ -1,32 +1,88 @@
-﻿@model List<PollResponse>
-@{
+﻿@{
     ViewData["Title"] = "CreatedPolls";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (!Model.Any())
-{
-    <div class="center-column">
-        <h1>Henüz bir anket oluşturmadınız</h1>
-        <h6>Anket oluşturma sayfasına <strong><a asp-action="createpoll" asp-controller="poll">burdan</a></strong> gidebilirsiniz.</h6>
-    </div>
-}
-else
-{
-    <h1>Oluşturduğun Anketler</h1>
-}
-<ol class="list-group list-group-numbered">
-    @foreach (var poll in Model)
-    {
-        <li class="poll-list-item list-group-item d-flex justify-content-between align-items-start" onclick="getData('@poll.Id')" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@poll.Id">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">@poll.Title</div>
-                @poll.Description
-                <br />
-                <small>@poll.CreatedAt</small>
-            </div>
-        </li>
-    }
+<div id="header" class="mb-5 text-dark-emphasis">
+</div>
+<ol id="polls" class="list-group list-group-numbered">
 </ol>
+
+@section Scripts{
+    <script>
+        const getListItemAsString = (item) => {
+            return `    <li class="poll-list-item list-group-item d-flex justify-content-between align-items-start" >
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">${item.title}</div>
+                                ${item.description}
+                                <br />
+                                <small>${item.createdAt}</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="delete btn btn-danger" data-id="${item.id}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </li>`
+        }
+        const showPolls = () => {
+            $.ajax({
+                type: "GET",
+                url: "/poll/getCreatedPolls",
+                success: function (data) {
+                    let html = ``
+                    console.log(data)
+                    $.each(data, function (index, value) {
+                        html += getListItemAsString(value)
+                    })
+                    loadHeader(data.length)
+                    $("#polls").html('')
+                    $("#polls").append(html)
+                },
+                error: function () {
+
+                }
+            })
+        }
+        const deletePoll = (pollId) => {
+            let data = {
+                Id: pollId
+            }
+            console.log(data)
+            $.ajax({
+                type: "POST",
+                url: "/poll/DeletePoll",
+                data: data,
+                success: function (data) {
+                    showPolls()
+                },
+                error: function () {
+
+                }
+            })
+        }
+
+        const loadHeader = (pollLength) => {
+            const emptyContent = ` <h1>Henüz bir anket oluşturmadınız</h1>
+                        <h6>Anket oluşturma sayfasına <strong><a href ="/poll/createPoll">burdan</a></strong> gidebilirsiniz.</h6>`
+            const defaultContent = ` <h1>Oluşturduğun Anketler</h1>`
+
+            let content = pollLength && pollLength > 0 ? defaultContent : emptyContent
+            $('#header').html('')
+            $('#header').append(content)
+        }
+        $(document).ready(function () {
+            showPolls()
+
+            setTimeout(() => {
+                $(document).on('click', '.delete', function () {
+                    console.log($(this).data('id'))
+                    let pollId = $(this).data('id')
+                    deletePoll(pollId)
+                });
+            }, 50)
+        })
+    </script>
+}
 
 

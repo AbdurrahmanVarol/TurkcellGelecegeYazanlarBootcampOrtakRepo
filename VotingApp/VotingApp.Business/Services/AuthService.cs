@@ -31,15 +31,14 @@ namespace VotingApp.Business.Services
         public async Task<UserResponse> LoginAsync(LoginRequest loginRequest)
         {
             var user = await _userService.GetByUsername(loginRequest.UserName);
+            var errorMessage = "Kullanıcı adı ya da şifre hatalı.\nLütfen tekrar deneyin.";
             if (user == null)
             {
-                //throw new ArgumentException("Kullanıcı bulunamadı!!!");
-                return null;
+                throw new ArgumentException(errorMessage);
             }
             if (!VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
-                //throw new ArgumentException("Şifre hatalı!!!");
-                return null;
+                throw new ArgumentException(errorMessage);
             }
             return _mapper.Map<UserResponse>(user);
         }

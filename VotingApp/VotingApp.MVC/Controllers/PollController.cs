@@ -19,6 +19,7 @@ namespace VotingApp.MVC.Controllers
         [HttpGet]
         public IActionResult CreatePoll()
         {
+
             return View();
         }
 
@@ -40,8 +41,20 @@ namespace VotingApp.MVC.Controllers
         [HttpGet]
         public IActionResult CreatedPolls()
         {
-            var polls = _pollService.GetPollsByCreatedById(UserId).GetAwaiter().GetResult();
-            return View(polls);
+            
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCreatedPolls()
+        {
+            var polls = await _pollService.GetPollsByCreatedById(UserId);
+            return Json(polls);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeletePoll(DeletePollRequest request)
+        {
+            await _pollService.DeletePollAsSoftById(request);
+            return Json(new { isSuccess = true });
         }
     }
 }

@@ -67,7 +67,7 @@ public sealed class PollService : IPollService
 
     public async Task<List<PollResponse>> GetPollsByCreatedById(int createdById)
     {
-        var polls = await _pollRepository.GetAllAsync(p => p.CreatedById == createdById);
+        var polls = await _pollRepository.GetAllAsync(p => p.CreatedById == createdById && !p.IsDeleted);
         return _mapper.Map<List<PollResponse>>(polls);
     }
 
