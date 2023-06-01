@@ -3,25 +3,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center text-dark-emphasis mb-5">
     <h1 class="display-4">Hoşgeldin @ViewBag.FullName</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<h1>Katıldığınız anketler</h1>
+<h1 class="text-dark-emphasis">Katıldığınız anketler</h1>
 <br />
-
-<table class="table table-hover table-striped table-bordered">
-    <tbody>
-        @foreach (var poll in Model.Polls)
-        {
-            <tr onclick="getData('@poll.Id')" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@poll.Id">
-                <td>@poll.Title</td>
-                <td>@poll.Description</td>
-            </tr>
-        }
-    </tbody>
-</table>
 
 <ol class="list-group list-group-numbered">
     @foreach (var poll in Model.Polls)
@@ -30,17 +17,17 @@
             <div class="ms-2 me-auto">
                 <div class="fw-bold">@poll.Title</div>
                 @poll.Description
-                <br/>
+                <br />
                 <small>@poll.CreatedAt</small>
             </div>
             <span class="badge bg-primary rounded-pill">@poll.NumberOfParticipant</span>
         </li>
-    }    
+    }
 </ol>
 
 <!--Modal-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable ">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Anket Detayı</h5>
@@ -52,7 +39,6 @@
                 <div id="pieChart" style="width:100%;height:60%;"></div>
                 <h3>Katılımcılar</h3>
                 <div id="participants" style="width:100%;height:fit-content;"></div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

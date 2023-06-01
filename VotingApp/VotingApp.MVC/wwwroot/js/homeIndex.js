@@ -50,25 +50,25 @@ const getData = (pollId) => {
                 html += `</tbody></table>`
                 participants.innerHTML = html
                 google.charts.setOnLoadCallback(drawChart(array));
+               
             })
             .catch(e => {
+                console.error('!!')
                 console.log(e);
             })
     }, 200);
 }
 function drawChart(array) {
+    let data = google.visualization.arrayToDataTable([...array]);
 
-    console.log(google.visualization)
-    var data = google.visualization.arrayToDataTable([...array]);
-
-    var options = {
+    let options = {
         title: "Title",
         width: "700",
         height: "400",
         pieSliceText: 'percentage'
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
+    let chart = new google.visualization.PieChart(document.getElementById('pieChart'));
 
-    chart.draw(data, options);
+    return chart.draw(data, options);
 }

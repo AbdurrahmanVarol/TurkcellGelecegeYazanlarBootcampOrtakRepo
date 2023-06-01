@@ -15,6 +15,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         option.LoginPath = "/auth/login";
         option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        //TODO:ÖNEMLÝ
+        option.AccessDeniedPath = "/";
+        option.ReturnUrlParameter = "";
     });
 
 builder.Services.AddBusinessLayer(builder.Configuration);

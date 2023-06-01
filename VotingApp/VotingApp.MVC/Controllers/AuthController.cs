@@ -25,28 +25,35 @@ namespace VotingApp.MVC.Controllers
         [HttpPost]
         public IActionResult Login(LoginRequest loginRequest)
         {
-            var user = _authService.LoginAsync(loginRequest).GetAwaiter().GetResult();
-            if (user == null)
+            try
             {
-                return View();
-            }
-            List<Claim> claims = new List<Claim>
+                var user = _authService.LoginAsync(loginRequest).GetAwaiter().GetResult();
+                
+                var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                     new Claim("Name",user.FirstName),
                     new Claim("FullName",user.FullName)
                 };
 
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            AuthenticationProperties authenticationProperties = new AuthenticationProperties
-            {
-                AllowRefresh = true,
-                IsPersistent = loginRequest.IsKeepLoggedIn,
-                
-            };
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authenticationProperties = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    IsPersistent = loginRequest.IsKeepLoggedIn,
 
-            HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity), authenticationProperties).GetAwaiter().GetResult();
-            return RedirectToAction("index", "home");
+                };
+
+                HttpContext.SignInAsync(new ClaimsPrincipal(claimsIdentity), authenticationProperties).GetAwaiter().GetResult();
+                return RedirectToAction("index", "home");
+            }
+            catch (Exception exception)
+            {
+                TempData["LoginException"] = exception.Message;
+                return View();
+            }
+            
+           
         }
         [HttpGet]
         public IActionResult Logout()
